@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class moveRandomly : MonoBehaviour {
+public class MenuMarbles : MonoBehaviour {
 
     int numberOfPathNodes;
     public int speedOfMarble = 25;
