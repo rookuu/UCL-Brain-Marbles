@@ -18,15 +18,15 @@ public class mousePointer : MonoBehaviour {
 	void Update () {
         var mousePos = Input.mousePosition;
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
-       
 
-        if (Input.GetKeyDown (KeyCode.Mouse0))
-        {
-            sr.sprite = lightOn;
-        }
-        else if (Input.GetKeyUp (KeyCode.Mouse0))
-        {
-            sr.sprite = lightOff;
-        }
 	}
+
+	void OnTriggerStay2D (Collider2D coll)
+	{
+		if (Input.GetKeyDown(KeyCode.Mouse0) && coll.tag == "Marble") {
+			coll.gameObject.GetComponent<marbleBehavior> ().catchMarble ();
+		}
+
+	}
+
 }
