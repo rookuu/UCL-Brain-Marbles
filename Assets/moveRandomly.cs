@@ -5,6 +5,8 @@ public class moveRandomly : MonoBehaviour {
 
     int numberOfPathNodes;
     public int speedOfMarble = 25;
+	public int xBoundary;
+	public int yBoundary;
 
 	// Use this for initialization
 	void Start ()
@@ -14,7 +16,7 @@ public class moveRandomly : MonoBehaviour {
 
         for (int i = 0; i < numberOfPathNodes; i++)
         {
-            path[i] = new Vector3(Random.Range(-20, 20), Random.Range(-12, 12), 0);
+			path[i] = new Vector3(Random.Range(-xBoundary, xBoundary), Random.Range(-yBoundary, yBoundary), 0);
         }
 
         runThroughPath(path);
@@ -38,26 +40,26 @@ public class moveRandomly : MonoBehaviour {
 
         if (rand == 1)
         {
-            offScreenPos = new Vector3(Random.Range(-20, 20), 20, 0);
+			offScreenPos = new Vector3(Random.Range(-xBoundary, xBoundary), yBoundary + 10, 0);
         }
         else if (rand == 2)
         {
-            offScreenPos = new Vector3(30, Random.Range(-12, 12), 0);
+			offScreenPos = new Vector3(xBoundary + 10, Random.Range(-yBoundary, yBoundary), 0);
         }
         else if (rand == 3)
         {
-            offScreenPos = new Vector3(Random.Range(-20, 20), -20, 0);
+			offScreenPos = new Vector3(Random.Range(-xBoundary, xBoundary), -yBoundary, 0);
         }
         else
         {
-            offScreenPos = new Vector3(-30, Random.Range(-12, 12), 0);
+			offScreenPos = new Vector3(-xBoundary, Random.Range(-yBoundary, yBoundary), 0);
         }
 
 
         iTween.MoveTo(gameObject, iTween.Hash("position", offScreenPos, "speed", speedOfMarble, "easetype", iTween.EaseType.linear, "oncomplete", "destroyMarble"));
     }
 
-    void destroyMarble()
+    public void destroyMarble()
     {
         DestroyImmediate(gameObject);
     }
