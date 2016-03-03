@@ -8,8 +8,8 @@ public class mousePointer : MonoBehaviour {
 
     private SpriteRenderer sr;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = lightOff;
 	}
