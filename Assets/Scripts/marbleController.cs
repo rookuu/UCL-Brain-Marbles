@@ -4,6 +4,7 @@ using System.Collections;
 public class marbleController : MonoBehaviour {
     public int x;
     public int percentOfFake;
+	public int maxSpeed;
     public GameObject Marble1;
     private bool hasRun = false;
 	public int xBoundary, yBoundary;
@@ -66,6 +67,8 @@ public class marbleController : MonoBehaviour {
 		{
 			offScreenPos = new Vector3(-xBoundary - 10, Random.Range(-yBoundary, yBoundary), 0);
 		}
+		Marble1.GetComponent<moveRandomly>().speedOfMarble = maxSpeed;
+
 
 		Instantiate (Marble1, offScreenPos, Quaternion.identity);
 	}
