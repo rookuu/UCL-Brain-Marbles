@@ -19,14 +19,12 @@ public class mousePointer : MonoBehaviour {
         var mousePos = Input.mousePosition;
         transform.position = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
 
-	}
+		if (Input.GetMouseButtonDown (0)) {
+			RaycastHit2D hitInfo = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
 
-	void OnTriggerStay2D (Collider2D coll)
-	{
-		if (Input.GetKeyDown(KeyCode.Mouse0) && coll.tag == "Marble") {
-			coll.gameObject.GetComponent<marbleBehavior> ().catchMarble ();
+			if (hitInfo.collider != null) {
+				hitInfo.collider.gameObject.GetComponent<marbleBehavior> ().catchMarble ();
+			}
 		}
-
 	}
-
 }
