@@ -4,34 +4,26 @@ using System.Collections;
 public class marbleBehavior : MonoBehaviour {
 
     public bool isFake = false;
-    public Sprite real;
-    public Sprite fake;
+	GameObject levelController;
 
     void Start ()
     {
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-
-        if (isFake == false)
-        {
-            sr.sprite = real;
-        }
-        else
-        {
-            sr.sprite = fake;
-        }
+		levelController = GameObject.FindGameObjectWithTag ("GameController");
     }
 
     public void catchMarble ()
     {
             if (isFake == false)
             {
-                Debug.Log("Real Marble was Caught!");
                 Destroy(gameObject);
+			levelController.GetComponent<levelController>().addScore (200);
+
+	
             }
             else
             {
-                Debug.Log("Fake Marble was Caught!");
-                Destroy(gameObject);
+			Destroy(gameObject);
+			levelController.GetComponent<levelController>().removeScore (100);
             }
 
 

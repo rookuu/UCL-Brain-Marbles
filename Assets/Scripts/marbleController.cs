@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class marbleController : MonoBehaviour {
-    public int x;
-    public int percentOfFake;
-	public int maxSpeed;
-    public GameObject Marble1;
+	public int x, percentOfFake, maxSpeed, xBoundary, yBoundary;
     private bool hasRun = false;
-	public int xBoundary, yBoundary;
+
+	public GameObject Marble1;
+	public Sprite real1, fake1;
 
 	// Use this for initialization
 	void Start () {
@@ -42,10 +41,12 @@ public class marbleController : MonoBehaviour {
 		if (rand > percentOfFake)
 		{
 			Marble1.GetComponent<marbleBehavior>().isFake = false;
+			Marble1.GetComponent<SpriteRenderer> ().sprite = real1;
 		}
 		else
 		{
 			Marble1.GetComponent<marbleBehavior>().isFake = true;
+			Marble1.GetComponent<SpriteRenderer> ().sprite = fake1;
 		}
 
 		rand = Random.Range(1, 4);
