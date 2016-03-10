@@ -14,7 +14,7 @@ public class MenuMarbles : MonoBehaviour {
 
 		for (int i = 0; i < numberOfPathNodes; i++)
 		{
-			path[i] = new Vector3(Random.Range(-10, 10), Random.Range(-6, 6), 0);
+			path[i] = new Vector3(Random.Range(-20, 20), Random.Range(-12, 12), 0);
 		}
 
 		runThroughPath(path);
