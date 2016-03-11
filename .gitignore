@@ -3,6 +3,8 @@
 # =============== #
 Temp/
 Library/
+*.app
+App.app/*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
