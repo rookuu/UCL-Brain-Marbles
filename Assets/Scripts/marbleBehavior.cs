@@ -27,5 +27,11 @@ public class marbleBehavior : MonoBehaviour {
             }
 
 
-    }
+	}
+
+	public void badCatch ()
+	{
+		Destroy(gameObject);
+		levelController.GetComponent<levelController> ().removeScore (100);
+	}
 }

@@ -22,9 +22,30 @@ public class mousePointer : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0)) {
 			RaycastHit2D hitInfo = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
 
-			if (hitInfo.collider != null) {
+			if (hitInfo.collider == null) {
+				KillNearestMarble ();
+
+			}
+			else if (hitInfo.collider.gameObject.tag == "Marble") {
 				hitInfo.collider.gameObject.GetComponent<marbleBehavior> ().catchMarble ();
 			}
 		}
+	}
+
+	void KillNearestMarble() {
+		GameObject[] marbles = GameObject.FindGameObjectsWithTag ("Marble");
+		GameObject nearest = null;
+		float minDistance = Mathf.Infinity;
+
+		foreach (GameObject marble in marbles) {
+			float objDist = (marble.transform.position - transform.position).sqrMagnitude;
+
+			if (objDist < minDistance) {
+				nearest = marble;
+				minDistance = objDist;
+			}
+		}
+
+		nearest.GetComponent<marbleBehavior> ().badCatch ();
 	}
 }
