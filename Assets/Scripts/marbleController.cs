@@ -4,6 +4,7 @@ using System.Collections;
 public class marbleController : MonoBehaviour {
 	public int x, percentOfFake, maxSpeed, xBoundary, yBoundary;
     private bool hasRun = false;
+	public bool isRunning = true;
 	public int uniqueMarbles;
 
 	public GameObject Marble1;
@@ -38,10 +39,12 @@ public class marbleController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-		int numberOfMarbles = GameObject.FindGameObjectsWithTag ("Marble").Length;
+		if (isRunning == true) {
+			int numberOfMarbles = GameObject.FindGameObjectsWithTag ("Marble").Length;
 
-		if (numberOfMarbles < x && hasRun == true) {
-			createMarble ();
+			if (numberOfMarbles < x && hasRun == true) {
+				createMarble ();
+			}
 		}
     }
 

@@ -21,9 +21,12 @@ public class levelController : MonoBehaviour {
 	void Update () {
 		if (time > timeLimit) {
 			textTime.text = "GAME OVER!";
+			GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
+			killAllMarbles ();
+
 		} else {
 			time += Time.deltaTime;
-			textTime.text = ((int)time).ToString ();
+			textTime.text = ((int)(timeLimit - time)).ToString ();
 		}
 			
 		if (score > scoreTarget) {
@@ -40,5 +43,12 @@ public class levelController : MonoBehaviour {
 
 	public void removeScore(int x) {
 		score -= x;
+	}
+
+	public void killAllMarbles() {
+		GameObject[] marbles = GameObject.FindGameObjectsWithTag ("Marble");
+		for (int i = 0; i < marbles.Length; i++) {
+			DestroyObject (marbles [i]);
+		}
 	}
 }
