@@ -34,4 +34,10 @@ public class marbleBehavior : MonoBehaviour {
 		Destroy(gameObject);
 		levelController.GetComponent<levelController> ().removeScore (100);
 	}
+
+	public void updateSpeed(int speed) {
+		if (GetComponent<moveRandomly> ().enabled == true) {
+			GetComponent<moveRandomly> ().speedOfMarble = speed;
+		}
+	}
 }

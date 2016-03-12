@@ -4,7 +4,7 @@ using System.Collections;
 public class moveRandomly : MonoBehaviour {
 
     int numberOfPathNodes;
-    public int speedOfMarble = 25;
+    public int speedOfMarble;
     public int xBoundary;
     public int yBoundary;
 
