@@ -14,6 +14,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake1;
 	public int speed1;
 	public string movementScript1;
+	public float size1;
+	public int relativeChance1;
 
 	[Space(5)]
 	[Header("Marble 2")]
@@ -22,6 +24,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake2;
 	public int speed2;
 	public string movementScript2;
+	public float size2;
+	public int relativeChance2;
 
 	[Space(5)]
 	[Header("Marble 3")]
@@ -30,6 +34,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake3;
 	public int speed3;
 	public string movementScript3;
+	public float size3;
+	public int relativeChance3;
 
 	[Space(5)]
 	[Header("Marble 4")]
@@ -38,6 +44,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake4;
 	public int speed4;
 	public string movementScript4;
+	public float size4;
+	public int relativeChance4;
 
 	[Space(5)]
 	[Header("Marble 5")]
@@ -46,6 +54,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake5;
 	public int speed5;
 	public string movementScript5;
+	public float size5;
+	public int relativeChance5;
 
 	[Space(5)]
 	[Header("Marble 6")]
@@ -54,6 +64,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake6;
 	public int speed6;
 	public string movementScript6;
+	public float size6;
+	public int relativeChance6;
 
 	// Use this for initialization
 	void Start () {
@@ -85,45 +97,51 @@ public class marbleController : MonoBehaviour {
 
 	void createMarble()
 	{
-		int rand = Random.Range (0, uniqueMarbles); //Want % for each Marble?
+		int rand = Random.Range (0, calcTotalChance (uniqueMarbles)); //Want % for each Marble?
 		GameObject MarbleX;
 
-		if (rand == 0) {
+		if (rand < relativeChance1) {
 			MarbleX = Marble1;
 			MarbleX = enableMovementScript (MarbleX, movementScript1);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake1;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite1;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed1);
-		} else if (rand == 1) {
+			MarbleX.transform.localScale = new Vector3 (size1, size1, size1);
+		} else if (rand < (relativeChance1 + relativeChance2)) {
 			MarbleX = Marble2;
 			MarbleX = enableMovementScript (MarbleX, movementScript2);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake2;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite2;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed2);
-		} else if (rand == 2) {
+			MarbleX.transform.localScale = new Vector3 (size2, size2, size2);
+		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3)) {
 			MarbleX = Marble3;
 			MarbleX = enableMovementScript (MarbleX, movementScript3);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake3;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite3;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed3);
-		} else if (rand == 3) {
+			MarbleX.transform.localScale = new Vector3 (size3, size3, size3);
+		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4)) {
 			MarbleX = Marble4;
 			MarbleX = enableMovementScript (MarbleX, movementScript4);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake4;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite4;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed4);
-		} else if (rand == 4) {
+			MarbleX.transform.localScale = new Vector3 (size4, size4, size4);
+		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4 + relativeChance5)) {
 			MarbleX = Marble5;
 			MarbleX = enableMovementScript (MarbleX, movementScript5);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake5;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite5;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed5);
+			MarbleX.transform.localScale = new Vector3 (size5, size5, size5);
 		} else {
 			MarbleX = Marble6;
 			MarbleX = enableMovementScript (MarbleX, movementScript6);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake6;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite6;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed6);
+			MarbleX.transform.localScale = new Vector3 (size6, size6, size6);
 		}
 
 		rand = Random.Range(1, 4);
@@ -157,5 +175,31 @@ public class marbleController : MonoBehaviour {
 		}
 
 		return marbleX;
+	}
+
+	private int calcTotalChance(int uniqueMarbles)
+	{
+		int total = 0;
+
+		if (uniqueMarbles >= 1) {
+			total += relativeChance1;
+		} 
+		if (uniqueMarbles >= 2) {
+			total += relativeChance2;
+		} 
+		if (uniqueMarbles >= 3) {
+			total += relativeChance3;
+		}
+		if (uniqueMarbles >= 4) {
+			total += relativeChance4;
+		}
+		if (uniqueMarbles >= 5) {
+			total += relativeChance5;
+		}
+		if (uniqueMarbles >= 6) {
+			total += relativeChance6;
+		}
+
+		return total;
 	}
 }
