@@ -8,13 +8,15 @@ public class levelController : MonoBehaviour {
 	float time = 0;
 	public float timeLimit;
 
+	public int badClickScore;
+
 	public Text textTime;
 	public Text textScore;
 
 
 	// Use this for initialization
 	void Start () {
-	
+		
 	}
 	
 	// Update is called once per frame
@@ -39,10 +41,6 @@ public class levelController : MonoBehaviour {
 
 	public void addScore(int x) {
 		score += x;
-	}
-
-	public void removeScore(int x) {
-		score -= x;
 	}
 
 	public void killAllMarbles() {

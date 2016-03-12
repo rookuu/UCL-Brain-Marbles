@@ -5,34 +5,25 @@ public class marbleBehavior : MonoBehaviour {
 
     public bool isFake = false;
 	GameObject levelController;
+	public int scoreChange;
+	int badClickScore;
 
     void Start ()
     {
 		levelController = GameObject.FindGameObjectWithTag ("GameController");
+		badClickScore = levelController.GetComponent<levelController> ().badClickScore;
     }
 
     public void catchMarble ()
     {
-            if (isFake == false)
-            {
-                Destroy(gameObject);
-			levelController.GetComponent<levelController>().addScore (200);
-
-	
-            }
-            else
-            {
-			Destroy(gameObject);
-			levelController.GetComponent<levelController>().removeScore (100);
-            }
-
-
+        Destroy(gameObject);
+		levelController.GetComponent<levelController>().addScore (scoreChange);
 	}
 
 	public void badCatch ()
 	{
 		Destroy(gameObject);
-		levelController.GetComponent<levelController> ().removeScore (100);
+		levelController.GetComponent<levelController> ().addScore (badClickScore);
 	}
 
 	public void updateSpeed(int speed) {

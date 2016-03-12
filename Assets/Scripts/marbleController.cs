@@ -16,6 +16,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript1;
 	public float size1;
 	public int relativeChance1;
+	public int scoreChange1;
 
 	[Space(5)]
 	[Header("Marble 2")]
@@ -26,6 +27,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript2;
 	public float size2;
 	public int relativeChance2;
+	public int scoreChange2;
 
 	[Space(5)]
 	[Header("Marble 3")]
@@ -36,6 +38,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript3;
 	public float size3;
 	public int relativeChance3;
+	public int scoreChange3;
 
 	[Space(5)]
 	[Header("Marble 4")]
@@ -46,6 +49,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript4;
 	public float size4;
 	public int relativeChance4;
+	public int scoreChange4;
 
 	[Space(5)]
 	[Header("Marble 5")]
@@ -56,6 +60,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript5;
 	public float size5;
 	public int relativeChance5;
+	public int scoreChange5;
 
 	[Space(5)]
 	[Header("Marble 6")]
@@ -66,6 +71,7 @@ public class marbleController : MonoBehaviour {
 	public string movementScript6;
 	public float size6;
 	public int relativeChance6;
+	public int scoreChange6;
 
 	// Use this for initialization
 	void Start () {
@@ -107,6 +113,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite1;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed1);
 			MarbleX.transform.localScale = new Vector3 (size1, size1, size1);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange1;
 		} else if (rand < (relativeChance1 + relativeChance2)) {
 			MarbleX = Marble2;
 			MarbleX = enableMovementScript (MarbleX, movementScript2);
@@ -114,6 +121,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite2;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed2);
 			MarbleX.transform.localScale = new Vector3 (size2, size2, size2);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange2;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3)) {
 			MarbleX = Marble3;
 			MarbleX = enableMovementScript (MarbleX, movementScript3);
@@ -121,6 +129,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite3;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed3);
 			MarbleX.transform.localScale = new Vector3 (size3, size3, size3);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange3;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4)) {
 			MarbleX = Marble4;
 			MarbleX = enableMovementScript (MarbleX, movementScript4);
@@ -128,6 +137,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite4;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed4);
 			MarbleX.transform.localScale = new Vector3 (size4, size4, size4);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange4;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4 + relativeChance5)) {
 			MarbleX = Marble5;
 			MarbleX = enableMovementScript (MarbleX, movementScript5);
@@ -135,6 +145,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite5;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed5);
 			MarbleX.transform.localScale = new Vector3 (size5, size5, size5);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange5;
 		} else {
 			MarbleX = Marble6;
 			MarbleX = enableMovementScript (MarbleX, movementScript6);
@@ -142,6 +153,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite6;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed6);
 			MarbleX.transform.localScale = new Vector3 (size6, size6, size6);
+			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange6;
 		}
 
 		rand = Random.Range(1, 4);
