@@ -15,7 +15,7 @@ public class marbleBehavior : MonoBehaviour {
     }
 
     public void catchMarble ()
-    {
+	{
         Destroy(gameObject);
 		levelController.GetComponent<levelController>().addScore (scoreChange);
 	}
