@@ -9,21 +9,35 @@ public class register : MonoBehaviour {
 	IDbConnection _conn;
 	IDbCommand _cmd;
 
-	public Text firstName;
-	public Text email;
-	public Text password;
-	public Text passwordVerify;
+	public Dropdown dob_day;
+	public Dropdown dob_month;
+	public InputField dob_year;
+	public Dropdown gender;
+	public Dropdown gamesTime;
+	public Dropdown gamesType;
+
+	private string dob;
 
 	public void createAcc() {
 		_conn = new SqliteConnection(_dbName);
 		_cmd = _conn .CreateCommand();
 		_conn .Open();
 
-		_cmd.Parameters.Add(new SqliteParameter ("@name", firstName.text));
-		_cmd.Parameters.Add(new SqliteParameter ("@email", email.text));
-		_cmd.Parameters.Add(new SqliteParameter ("@pass", password.text));
+		dob_day.value += 1;
+		dob_month.value += 1;
+		dob = dob_day.value.ToString() + '-' + dob_month.value.ToString() + "-" + dob_year.text;
 
-		_cmd.CommandText = "INSERT INTO `users` (firstname, email,  passwd) VALUES (@name, @email, @pass);";
+		globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
+
+		_cmd.Parameters.Add(new SqliteParameter ("@name", data.userName));
+		_cmd.Parameters.Add(new SqliteParameter ("@email", data.userEmail));
+		_cmd.Parameters.Add(new SqliteParameter ("@pass", data.userPass));
+		_cmd.Parameters.Add(new SqliteParameter ("@dob", dob));
+		_cmd.Parameters.Add(new SqliteParameter ("@gender", gender.value));
+		_cmd.Parameters.Add(new SqliteParameter ("@gamesTime", gamesTime.value));
+		_cmd.Parameters.Add(new SqliteParameter ("@gamesType", gamesType.value));
+
+		_cmd.CommandText = "INSERT INTO `users` (firstname, email,  passwd, dob, gender, gamesTime, gamesType) VALUES (@name, @email, @pass, @dob, @gender, @gamesTime, @gamesType);";
 
 
 		_cmd.ExecuteNonQuery();
