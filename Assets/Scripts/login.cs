@@ -47,5 +47,7 @@ public class login : MonoBehaviour {
 				}
 			}
 		}
+
+		_conn.Close ();
 	}
 }

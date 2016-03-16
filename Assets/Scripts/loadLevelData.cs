@@ -17,7 +17,7 @@ public class loadLevelData : MonoBehaviour {
 	public Sprite circlepure;
 	public Sprite circleblue;
 
-	int stageid = 1, levelid;
+	public int stageid = 1, levelid;
 
 	void Awake() {
 		_conn = new SqliteConnection(_dbName);
@@ -171,6 +171,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.relativeChance6 = (int)_reader ["relchance"];
 				marbleData.scoreChange6 = (int)_reader ["score"];
 			}
+
+			_conn.Close ();
 		}
 	}
 

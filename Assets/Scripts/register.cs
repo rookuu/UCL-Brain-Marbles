@@ -46,6 +46,7 @@ public class register : MonoBehaviour {
 
 
 			_cmd.ExecuteNonQuery ();
+			_conn.Close ();
 
 			data.loggedIn = false;
 			data.userID = 0;
@@ -56,6 +57,7 @@ public class register : MonoBehaviour {
 			SceneManager.LoadScene (3);
 		} else {
 			Debug.Log ("Please enter a valid Date Of Birth!");
+			_conn.Close ();
 		}
 	}
 }
