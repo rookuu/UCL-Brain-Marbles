@@ -16,6 +16,7 @@ public class marbleBehavior : MonoBehaviour {
 
     public void catchMarble ()
 	{
+        iTween.ScaleTo(gameObject, new Vector3(0, 0, 0), 2); 
         Destroy(gameObject);
 		levelController.GetComponent<levelController>().addScore (scoreChange);
 	}
