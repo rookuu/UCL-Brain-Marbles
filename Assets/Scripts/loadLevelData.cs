@@ -112,6 +112,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed1 = (int)_reader ["speed"];
 				marbleData.movementScript1 = (string)_reader ["script"];
 				marbleData.size1 = (int)_reader ["size"];
+				marbleData.rotation1 = (int)_reader ["rotation"];
 				marbleData.relativeChance1 = (int)_reader ["relchance"];
 				marbleData.scoreChange1 = (int)_reader ["score"];
 			} else if (slot == 2) {
@@ -122,6 +123,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed2 = (int)_reader ["speed"];
 				marbleData.movementScript2 = (string)_reader ["script"];
 				marbleData.size2 = (int)_reader ["size"];
+				marbleData.rotation2 = (int)_reader ["rotation"];
 				marbleData.relativeChance2 = (int)_reader ["relchance"];
 				marbleData.scoreChange2 = (int)_reader ["score"];
 			} else if (slot == 3) {
@@ -132,6 +134,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed3 = (int)_reader ["speed"];
 				marbleData.movementScript3 = (string)_reader ["script"];
 				marbleData.size3 = (int)_reader ["size"];
+				marbleData.rotation3 = (int)_reader ["rotation"];
 				marbleData.relativeChance3 = (int)_reader ["relchance"];
 				marbleData.scoreChange3 = (int)_reader ["score"];
 			} else if (slot == 4) {
@@ -142,6 +145,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed4 = (int)_reader ["speed"];
 				marbleData.movementScript4 = (string)_reader ["script"];
 				marbleData.size4 = (int)_reader ["size"];
+				marbleData.rotation4 = (int)_reader ["rotation"];
 				marbleData.relativeChance4 = (int)_reader ["relchance"];
 				marbleData.scoreChange4 = (int)_reader ["score"];
 			} else if (slot == 5) {
@@ -152,6 +156,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed5 = (int)_reader ["speed"];
 				marbleData.movementScript5 = (string)_reader ["script"];
 				marbleData.size5 = (int)_reader ["size"];
+				marbleData.rotation5 = (int)_reader ["rotation"];
 				marbleData.relativeChance5 = (int)_reader ["relchance"];
 				marbleData.scoreChange5 = (int)_reader ["score"];
 			} else if (slot == 6) {
@@ -162,6 +167,7 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.speed6 = (int)_reader ["speed"];
 				marbleData.movementScript6 = (string)_reader ["script"];
 				marbleData.size6 = (int)_reader ["size"];
+				marbleData.rotation6 = (int)_reader ["rotation"];
 				marbleData.relativeChance6 = (int)_reader ["relchance"];
 				marbleData.scoreChange6 = (int)_reader ["score"];
 			}
