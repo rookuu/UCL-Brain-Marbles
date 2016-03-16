@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class marbleController : MonoBehaviour {
-	public int x, percentOfFake, xBoundary, yBoundary;
+	public int marblesOnScreen, xBoundary, yBoundary;
     private bool hasRun = false;
 	public bool isRunning = true;
 	public int uniqueMarbles;
@@ -84,7 +84,7 @@ public class marbleController : MonoBehaviour {
 		if (isRunning == true) {
 			int numberOfMarbles = GameObject.FindGameObjectsWithTag ("Marble").Length;
 
-			if (numberOfMarbles < x && hasRun == true) {
+			if (numberOfMarbles < marblesOnScreen && hasRun == true) {
 				createMarble ();
 			}
 		}
@@ -92,7 +92,7 @@ public class marbleController : MonoBehaviour {
 
     IEnumerator createInitialMarbles ()
     {
-        for (int i = 0; i < x; i++)
+		for (int i = 0; i < marblesOnScreen; i++)
         {
             yield return new WaitForSeconds(1);
 			createMarble ();
