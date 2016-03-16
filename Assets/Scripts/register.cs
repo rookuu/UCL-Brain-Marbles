@@ -3,6 +3,7 @@ using System.Collections;
 using System.Data;
 using Mono.Data.SqliteClient;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class register : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
@@ -29,9 +30,12 @@ public class register : MonoBehaviour {
 
 		globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
 
+		string salt = BCrypt.GenerateSalt ();
+		string hashedPass = BCrypt.HashPassword (data.userPass + "r~BV2$J", salt);
+
 		_cmd.Parameters.Add(new SqliteParameter ("@name", data.userName));
 		_cmd.Parameters.Add(new SqliteParameter ("@email", data.userEmail));
-		_cmd.Parameters.Add(new SqliteParameter ("@pass", data.userPass));
+		_cmd.Parameters.Add(new SqliteParameter ("@pass", hashedPass));
 		_cmd.Parameters.Add(new SqliteParameter ("@dob", dob));
 		_cmd.Parameters.Add(new SqliteParameter ("@gender", gender.value));
 		_cmd.Parameters.Add(new SqliteParameter ("@gamesTime", gamesTime.value));
@@ -41,5 +45,13 @@ public class register : MonoBehaviour {
 
 
 		_cmd.ExecuteNonQuery();
+
+		data.loggedIn = false;
+		data.userID = 0;
+		data.userEmail = null;
+		data.userName = null;
+		data.userPass = null;
+		data.saveData ();
+		SceneManager.LoadScene (3);
 	}
 }
