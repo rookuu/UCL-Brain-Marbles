@@ -25,12 +25,12 @@ public class login : MonoBehaviour {
 
 		_cmd.Parameters.Add(new SqliteParameter ("@email", email.text));
 
-		_cmd.CommandText = "SELECT `passwd` FROM `users` WHERE `email`=@email";
+		_cmd.CommandText = "SELECT `passwd` FROM `users` WHERE `email`=@email;";
 		_reader = _cmd.ExecuteReader ();
 
 		if (_reader.Read ()) {
 			if (BCrypt.CheckPassword(password.text + "r~BV2$J", (string)_reader["passwd"])) {
-				_cmd.CommandText = "SELECT * FROM `users` WHERE `email`=@email";
+				_cmd.CommandText = "SELECT * FROM `users` WHERE `email`=@email;";
 				_reader = _cmd.ExecuteReader ();
 
 				if (_reader.Read ()) {
@@ -47,5 +47,7 @@ public class login : MonoBehaviour {
 				}
 			}
 		}
+
+		_conn.Close ();
 	}
 }
