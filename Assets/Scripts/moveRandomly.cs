@@ -11,7 +11,7 @@ public class moveRandomly : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        numberOfPathNodes = Random.Range(10, 50);
+        numberOfPathNodes = Random.Range(2, 6);
         Vector3[] path = new Vector3[numberOfPathNodes];
 
         for (int i = 0; i < numberOfPathNodes; i++)
