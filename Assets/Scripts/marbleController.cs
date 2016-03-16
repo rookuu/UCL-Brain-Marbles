@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class marbleController : MonoBehaviour {
-	public int x, percentOfFake, xBoundary, yBoundary;
-    private bool hasRun = false;
+	public int marblesOnScreen, xBoundary, yBoundary;
+	private bool hasRun = false;
 	public bool isRunning = true;
 	public int uniqueMarbles;
 
@@ -15,6 +15,7 @@ public class marbleController : MonoBehaviour {
 	public int speed1;
 	public string movementScript1;
 	public float size1;
+	public int rotation1;
 	public int relativeChance1;
 	public int scoreChange1;
 
@@ -26,6 +27,7 @@ public class marbleController : MonoBehaviour {
 	public int speed2;
 	public string movementScript2;
 	public float size2;
+	public int rotation2;
 	public int relativeChance2;
 	public int scoreChange2;
 
@@ -37,6 +39,7 @@ public class marbleController : MonoBehaviour {
 	public int speed3;
 	public string movementScript3;
 	public float size3;
+	public int rotation3;
 	public int relativeChance3;
 	public int scoreChange3;
 
@@ -48,6 +51,7 @@ public class marbleController : MonoBehaviour {
 	public int speed4;
 	public string movementScript4;
 	public float size4;
+	public int rotation4;
 	public int relativeChance4;
 	public int scoreChange4;
 
@@ -59,6 +63,7 @@ public class marbleController : MonoBehaviour {
 	public int speed5;
 	public string movementScript5;
 	public float size5;
+	public int rotation5;
 	public int relativeChance5;
 	public int scoreChange5;
 
@@ -70,36 +75,37 @@ public class marbleController : MonoBehaviour {
 	public int speed6;
 	public string movementScript6;
 	public float size6;
+	public int rotation6;
 	public int relativeChance6;
 	public int scoreChange6;
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(createInitialMarbles());
+		StartCoroutine(createInitialMarbles());
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	// Update is called once per frame
+	void Update()
+	{
 		if (isRunning == true) {
 			int numberOfMarbles = GameObject.FindGameObjectsWithTag ("Marble").Length;
 
-			if (numberOfMarbles < x && hasRun == true) {
+			if (numberOfMarbles < marblesOnScreen && hasRun == true) {
 				createMarble ();
 			}
 		}
-    }
+	}
 
-    IEnumerator createInitialMarbles ()
-    {
-        for (int i = 0; i < x; i++)
-        {
-            yield return new WaitForSeconds(1);
+	IEnumerator createInitialMarbles ()
+	{
+		for (int i = 0; i < marblesOnScreen; i++)
+		{
+			yield return new WaitForSeconds(1);
 			createMarble ();
-        }
+		}
 
 		hasRun = true;
-    }
+	}
 
 	void createMarble()
 	{
@@ -156,18 +162,18 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange6;
 		}
 
-		rand = Random.Range(1, 4);
+		int rand2 = Random.Range(1, 4);
 		Vector3 offScreenPos;
 
-		if (rand == 1)
+		if (rand2 == 1)
 		{
 			offScreenPos = new Vector3(Random.Range(-xBoundary, xBoundary), yBoundary + 10, 0);
 		}
-		else if (rand == 2)
+		else if (rand2 == 2)
 		{
 			offScreenPos = new Vector3(xBoundary + 10, Random.Range(-yBoundary, yBoundary), 0);
 		}
-		else if (rand == 3)
+		else if (rand2 == 3)
 		{
 			offScreenPos = new Vector3(Random.Range(-xBoundary, xBoundary), -yBoundary - 10, 0);
 		}
@@ -175,8 +181,31 @@ public class marbleController : MonoBehaviour {
 		{
 			offScreenPos = new Vector3(-xBoundary - 10, Random.Range(-yBoundary, yBoundary), 0);
 		}
-			
-		Instantiate (MarbleX, offScreenPos, Quaternion.identity);
+
+		GameObject newMarble = (GameObject)Instantiate (MarbleX, offScreenPos, Quaternion.identity);
+
+		if (rand < relativeChance1) {
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation1));
+		} 
+		else if (rand < (relativeChance1 + relativeChance2)) {
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation2));
+		} 
+		else if (rand < (relativeChance1 + relativeChance2 + relativeChance3)) 
+		{
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation3));
+		} 
+		else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4)) 
+		{
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation4));
+		} 
+		else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4 + relativeChance5)) 
+		{
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation5));
+		} 
+		else 
+		{
+			newMarble.transform.Rotate (new Vector3 (0, 0, rotation6));
+		}
 	}
 
 	private GameObject enableMovementScript(GameObject marbleX, string name) 
