@@ -17,12 +17,14 @@ public class loadLevelData : MonoBehaviour {
 	public Sprite circlepure;
 	public Sprite circleblue;
 
-	public int stageid = 1, levelid;
+	public int stageid, levelid;
 
 	void Awake() {
 		_conn = new SqliteConnection(_dbName);
 		_cmd = _conn .CreateCommand();
 		_conn.Open();
+
+		stageid = int.Parse(GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText);
 
 		_cmd.Parameters.Add(new SqliteParameter ("@stageid", stageid));
 		_cmd.CommandText = "SELECT * FROM `stages` WHERE `stageid`=@stageid";

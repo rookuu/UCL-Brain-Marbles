@@ -4,12 +4,15 @@ using System.Collections;
 public class globalData : MonoBehaviour {
 
 	public static globalData instance;
+
 	public bool loggedIn = false;
 
 	public int userID = 0;
 	public string userName = null;
 	public string userEmail = null;
 	public string userPass = null;
+
+	public string btnText = null;
 
 	void Start () {
 		loggedIn = globalData.instance.loggedIn;
@@ -18,6 +21,8 @@ public class globalData : MonoBehaviour {
 		userName = globalData.instance.userName;
 		userEmail = globalData.instance.userEmail;
 		userPass = globalData.instance.userPass;
+
+		btnText = globalData.instance.btnText;
 	}
 	
 	// Update is called once per frame
@@ -38,5 +43,7 @@ public class globalData : MonoBehaviour {
 		globalData.instance.userName = userName;
 		globalData.instance.userEmail = userEmail;
 		globalData.instance.userPass = userPass;
+
+		globalData.instance.btnText = btnText;
 	}
 }
