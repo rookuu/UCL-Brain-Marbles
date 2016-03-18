@@ -14,10 +14,14 @@ public class marbleBehavior : MonoBehaviour {
 		badClickScore = levelController.GetComponent<levelController> ().badClickScore;
     }
 
+    void destroyMarble()
+    {
+        Destroy(gameObject);
+    }
+
     public void catchMarble ()
 	{
         iTween.ScaleTo(gameObject, new Vector3(0, 0, 0), 2); 
-        Destroy(gameObject);
 		levelController.GetComponent<levelController>().addScore (scoreChange);
 	}
 
