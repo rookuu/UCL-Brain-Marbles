@@ -37,7 +37,7 @@ public class levelController : MonoBehaviour {
 
 			} else {
 				time += Time.deltaTime;
-				textTime.text = ((int)(timeLimit - time)).ToString ();
+				textTime.text = ((int)(timeLimit - time)).ToString () + " seconds left!";
 			}
 				
 			if (score > scoreTarget) {
@@ -47,7 +47,7 @@ public class levelController : MonoBehaviour {
 				saveSession ("pass");
 				Invoke ("gotoMenu", 5);
 			} else {
-				textScore.text = ((int)score).ToString ();
+				textScore.text = ((int)score).ToString () + " points";
 			}
 		}
 	}
