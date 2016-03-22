@@ -24,7 +24,7 @@ public class register : MonoBehaviour {
 		_cmd = _conn .CreateCommand();
 		_conn .Open();
 
-		if (dob_year.text.Length != 4) {
+		if (dob_year.text.Length == 4) {
 			dob_day.value += 1;
 			dob_month.value += 1;
 			dob = dob_day.value.ToString () + '-' + dob_month.value.ToString () + "-" + dob_year.text;

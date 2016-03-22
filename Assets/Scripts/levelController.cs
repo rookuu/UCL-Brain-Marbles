@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Data;
 using Mono.Data.SqliteClient;
+using UnityEngine.SceneManagement;
 
 public class levelController : MonoBehaviour {
 	int score = 0;
@@ -32,6 +33,7 @@ public class levelController : MonoBehaviour {
 				GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
 				killAllMarbles ();
 				saveSession ("fail");
+				Invoke ("gotoMenu", 5);
 
 			} else {
 				time += Time.deltaTime;
@@ -43,6 +45,7 @@ public class levelController : MonoBehaviour {
 				GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
 				killAllMarbles ();
 				saveSession ("pass");
+				Invoke ("gotoMenu", 5);
 			} else {
 				textScore.text = ((int)score).ToString ();
 			}
@@ -78,4 +81,10 @@ public class levelController : MonoBehaviour {
 		_cmd.ExecuteNonQuery ();
 		_conn.Close ();
 	}
+
+	private void gotoMenu() {
+		SceneManager.LoadScene (5);
+	}
 }
+
+
