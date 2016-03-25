@@ -16,6 +16,23 @@ public class loadLevelData : MonoBehaviour {
 
 	public Sprite circlepure;
 	public Sprite circleblue;
+	public Sprite circlegreen;
+	public Sprite circlered;
+
+	public Sprite ovalpure;
+	public Sprite ovalblue;
+	public Sprite ovalgreen;
+	public Sprite ovalred;
+
+	public Sprite tearpure;
+	public Sprite tearblue;
+	public Sprite teargreen;
+	public Sprite tearred;
+
+	public Sprite trianglepure;
+	public Sprite triangleblue;
+	public Sprite trianglegreen;
+	public Sprite trianglered;
 
 	public int stageid, levelid;
 
@@ -207,9 +224,39 @@ public class loadLevelData : MonoBehaviour {
 			return circlepure;
 		} else if (sprite == "circleblue") {
 			return circleblue;
+		} else if (sprite == "circlegreen") {
+			return circlegreen;
+		} else if (sprite == "circlered") {
+			return circlered;
+		} else if (sprite == "ovalpure") {
+			return ovalpure;
+		} else if (sprite == "ovalblue") {
+			return ovalblue;
+		} else if (sprite == "ovalgreen") {
+			return ovalgreen;
+		} else if (sprite == "ovalred") {
+			return ovalred;
+		} else if (sprite == "tearpure") {
+			return tearpure;
+		} else if (sprite == "tearblue") {
+			return tearblue;
+		} else if (sprite == "teargreen") {
+			return teargreen;
+		} else if (sprite == "tearred") {
+			return tearred;
+		} else if (sprite == "trianglepure") {
+			return trianglepure;
+		} else if (sprite == "triangleblue") {
+			return triangleblue;
+		} else if (sprite == "trianglegreen") {
+			return trianglegreen;
+		} else if (sprite == "trianglered") {
+			return trianglered;
 		}
 
-		return circlepure; //temp
+		// More Sprites need to be added here!
+	
+		return circlepure; //FailSafe;
 	}
 
 	bool findFake (string fake) {
