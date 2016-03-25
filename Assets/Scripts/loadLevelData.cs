@@ -113,6 +113,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake1 = findFake ((string)_reader ["fake"]);
 				marbleData.speed1 = (int)_reader ["speed"];
 				marbleData.movementScript1 = (string)_reader ["script"];
+				marbleData.maxNodes1 = (int)_reader ["maxNodes"];
+				marbleData.minNodes1 = (int)_reader ["minNodes"];
 				marbleData.size1 = (int)_reader ["size"];
 				marbleData.rotation1 = (int)_reader ["rotation"];
 				marbleData.relativeChance1 = (int)_reader ["relchance"];
@@ -124,6 +126,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake2 = findFake ((string)_reader ["fake"]);
 				marbleData.speed2 = (int)_reader ["speed"];
 				marbleData.movementScript2 = (string)_reader ["script"];
+				marbleData.maxNodes2 = (int)_reader ["maxNodes"];
+				marbleData.minNodes2 = (int)_reader ["minNodes"];
 				marbleData.size2 = (int)_reader ["size"];
 				marbleData.rotation2 = (int)_reader ["rotation"];
 				marbleData.relativeChance2 = (int)_reader ["relchance"];
@@ -135,6 +139,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake3 = findFake ((string)_reader ["fake"]);
 				marbleData.speed3 = (int)_reader ["speed"];
 				marbleData.movementScript3 = (string)_reader ["script"];
+				marbleData.maxNodes3 = (int)_reader ["maxNodes"];
+				marbleData.minNodes3 = (int)_reader ["minNodes"];
 				marbleData.size3 = (int)_reader ["size"];
 				marbleData.rotation3 = (int)_reader ["rotation"];
 				marbleData.relativeChance3 = (int)_reader ["relchance"];
@@ -146,6 +152,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake4 = findFake ((string)_reader ["fake"]);
 				marbleData.speed4 = (int)_reader ["speed"];
 				marbleData.movementScript4 = (string)_reader ["script"];
+				marbleData.maxNodes4 = (int)_reader ["maxNodes"];
+				marbleData.minNodes4 = (int)_reader ["minNodes"];
 				marbleData.size4 = (int)_reader ["size"];
 				marbleData.rotation4 = (int)_reader ["rotation"];
 				marbleData.relativeChance4 = (int)_reader ["relchance"];
@@ -157,6 +165,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake5 = findFake ((string)_reader ["fake"]);
 				marbleData.speed5 = (int)_reader ["speed"];
 				marbleData.movementScript5 = (string)_reader ["script"];
+				marbleData.maxNodes5 = (int)_reader ["maxNodes"];
+				marbleData.minNodes5 = (int)_reader ["minNodes"];
 				marbleData.size5 = (int)_reader ["size"];
 				marbleData.rotation5 = (int)_reader ["rotation"];
 				marbleData.relativeChance5 = (int)_reader ["relchance"];
@@ -168,6 +178,8 @@ public class loadLevelData : MonoBehaviour {
 				marbleData.fake6 = findFake ((string)_reader ["fake"]);
 				marbleData.speed6 = (int)_reader ["speed"];
 				marbleData.movementScript6 = (string)_reader ["script"];
+				marbleData.maxNodes6 = (int)_reader ["maxNodes"];
+				marbleData.minNodes6 = (int)_reader ["minNodes"];
 				marbleData.size6 = (int)_reader ["size"];
 				marbleData.rotation6 = (int)_reader ["rotation"];
 				marbleData.relativeChance6 = (int)_reader ["relchance"];

@@ -14,6 +14,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake1;
 	public int speed1;
 	public string movementScript1;
+	public int minNodes1;
+	public int maxNodes1;
 	public float size1;
 	public int rotation1;
 	public int relativeChance1;
@@ -26,6 +28,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake2;
 	public int speed2;
 	public string movementScript2;
+	public int minNodes2;
+	public int maxNodes2;
 	public float size2;
 	public int rotation2;
 	public int relativeChance2;
@@ -38,6 +42,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake3;
 	public int speed3;
 	public string movementScript3;
+	public int minNodes3;
+	public int maxNodes3;
 	public float size3;
 	public int rotation3;
 	public int relativeChance3;
@@ -50,6 +56,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake4;
 	public int speed4;
 	public string movementScript4;
+	public int minNodes4;
+	public int maxNodes4;
 	public float size4;
 	public int rotation4;
 	public int relativeChance4;
@@ -62,6 +70,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake5;
 	public int speed5;
 	public string movementScript5;
+	public int minNodes5;
+	public int maxNodes5;
 	public float size5;
 	public int rotation5;
 	public int relativeChance5;
@@ -74,6 +84,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake6;
 	public int speed6;
 	public string movementScript6;
+	public int minNodes6;
+	public int maxNodes6;
 	public float size6;
 	public int rotation6;
 	public int relativeChance6;
@@ -109,12 +121,12 @@ public class marbleController : MonoBehaviour {
 
 	void createMarble()
 	{
-		int rand = Random.Range (0, calcTotalChance (uniqueMarbles)); //Want % for each Marble?
+		int rand = Random.Range (0, calcTotalChance (uniqueMarbles)); 
 		GameObject MarbleX;
 
 		if (rand < relativeChance1) {
 			MarbleX = Marble1;
-			MarbleX = enableMovementScript (MarbleX, movementScript1);
+			MarbleX = enableMovementScript (MarbleX, movementScript1, maxNodes1, minNodes1);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake1;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite1;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed1);
@@ -122,7 +134,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange1;
 		} else if (rand < (relativeChance1 + relativeChance2)) {
 			MarbleX = Marble2;
-			MarbleX = enableMovementScript (MarbleX, movementScript2);
+			MarbleX = enableMovementScript (MarbleX, movementScript2, maxNodes2, minNodes2);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake2;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite2;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed2);
@@ -130,7 +142,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange2;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3)) {
 			MarbleX = Marble3;
-			MarbleX = enableMovementScript (MarbleX, movementScript3);
+			MarbleX = enableMovementScript (MarbleX, movementScript3, maxNodes3, minNodes3);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake3;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite3;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed3);
@@ -138,7 +150,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange3;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4)) {
 			MarbleX = Marble4;
-			MarbleX = enableMovementScript (MarbleX, movementScript4);
+			MarbleX = enableMovementScript (MarbleX, movementScript4, maxNodes4, minNodes4);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake4;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite4;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed4);
@@ -146,7 +158,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange4;
 		} else if (rand < (relativeChance1 + relativeChance2 + relativeChance3 + relativeChance4 + relativeChance5)) {
 			MarbleX = Marble5;
-			MarbleX = enableMovementScript (MarbleX, movementScript5);
+			MarbleX = enableMovementScript (MarbleX, movementScript5, maxNodes5, minNodes5);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake5;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite5;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed5);
@@ -154,7 +166,7 @@ public class marbleController : MonoBehaviour {
 			MarbleX.GetComponent<marbleBehavior> ().scoreChange = scoreChange5;
 		} else {
 			MarbleX = Marble6;
-			MarbleX = enableMovementScript (MarbleX, movementScript6);
+			MarbleX = enableMovementScript (MarbleX, movementScript6, maxNodes6, minNodes6);
 			MarbleX.GetComponent<marbleBehavior> ().isFake = fake6;
 			MarbleX.GetComponent<SpriteRenderer> ().sprite = sprite6;
 			MarbleX.GetComponent<marbleBehavior> ().updateSpeed (speed6);
@@ -208,11 +220,13 @@ public class marbleController : MonoBehaviour {
 		}
 	}
 
-	private GameObject enableMovementScript(GameObject marbleX, string name) 
+	private GameObject enableMovementScript(GameObject marbleX, string name, int minNodes, int maxNodes) 
 	// For New Movement Scripts (Identities) They'll need to be enabled / disabled here.
 	{
 		if (name == "moveRandomly") {
 			marbleX.GetComponent<moveRandomly> ().enabled = true;
+			marbleX.GetComponent<moveRandomly> ().maxNodes = maxNodes;
+			marbleX.GetComponent<moveRandomly> ().minNodes = minNodes;
 		}
 
 		return marbleX;

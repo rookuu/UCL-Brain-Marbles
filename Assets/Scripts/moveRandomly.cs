@@ -7,11 +7,13 @@ public class moveRandomly : MonoBehaviour {
     public int speedOfMarble;
     public int xBoundary;
     public int yBoundary;
+	public int maxNodes;
+	public int minNodes;
 
     // Use this for initialization
     void Start ()
     {
-        numberOfPathNodes = Random.Range(2, 6);
+		numberOfPathNodes = Random.Range(minNodes, maxNodes);
         Vector3[] path = new Vector3[numberOfPathNodes];
 
         for (int i = 0; i < numberOfPathNodes; i++)
