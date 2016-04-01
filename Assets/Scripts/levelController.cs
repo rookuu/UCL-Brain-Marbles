@@ -20,6 +20,9 @@ public class levelController : MonoBehaviour {
 	IDbConnection _conn;
 	IDbCommand _cmd;
 
+	public GameObject levelwin, levellose;
+	public Text num1, num2, score1, score2;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -29,26 +32,29 @@ public class levelController : MonoBehaviour {
 	void Update () {
 		if (GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning == true) {
 			if (time > timeLimit) {
-				textTime.text = "GAME OVER!";
 				GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
 				killAllMarbles ();
-				saveSession ("fail");
-				Invoke ("gotoMenu", 5);
+
+				if (score > scoreTarget) {
+					Debug.Log ("Level Win");
+					saveSession ("pass");
+					levelwin.SetActive (true);
+					num2.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
+					score2.GetComponent<Text> ().text = "Score: " + score.ToString();
+				} else {
+					Debug.Log ("Level Loss");
+					saveSession ("fail");
+					levellose.SetActive (true);
+					num1.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
+					score1.GetComponent<Text> ().text = "Score: " + score.ToString();
+				}
 
 			} else {
 				time += Time.deltaTime;
 				textTime.text = ((int)(timeLimit - time)).ToString () + " seconds left!";
+				textScore.text = ((int)score).ToString () + "/" + scoreTarget.ToString() +  " points";
 			}
-				
-			if (score > scoreTarget) {
-				textScore.text = "GAME WIN!";
-				GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
-				killAllMarbles ();
-				saveSession ("pass");
-				Invoke ("gotoMenu", 5);
-			} else {
-				textScore.text = ((int)score).ToString () + " points";
-			}
+
 		}
 	}
 
@@ -80,10 +86,6 @@ public class levelController : MonoBehaviour {
 		_cmd.CommandText = "INSERT INTO `levelsessions` (stageid, levelid, userid, score, timeleft, status) VALUES (@stageid, @levelid, @userid, @score, @timeleft, @status);";
 		_cmd.ExecuteNonQuery ();
 		_conn.Close ();
-	}
-
-	private void gotoMenu() {
-		SceneManager.LoadScene (5);
 	}
 }
 

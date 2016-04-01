@@ -14,8 +14,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake1;
 	public int speed1;
 	public string movementScript1;
-	public int minNodes1;
 	public int maxNodes1;
+	public int minNodes1;
 	public float size1;
 	public int rotation1;
 	public int relativeChance1;
@@ -28,8 +28,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake2;
 	public int speed2;
 	public string movementScript2;
-	public int minNodes2;
 	public int maxNodes2;
+	public int minNodes2;
 	public float size2;
 	public int rotation2;
 	public int relativeChance2;
@@ -42,8 +42,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake3;
 	public int speed3;
 	public string movementScript3;
-	public int minNodes3;
 	public int maxNodes3;
+	public int minNodes3;
 	public float size3;
 	public int rotation3;
 	public int relativeChance3;
@@ -56,8 +56,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake4;
 	public int speed4;
 	public string movementScript4;
-	public int minNodes4;
 	public int maxNodes4;
+	public int minNodes4;
 	public float size4;
 	public int rotation4;
 	public int relativeChance4;
@@ -70,8 +70,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake5;
 	public int speed5;
 	public string movementScript5;
-	public int minNodes5;
 	public int maxNodes5;
+	public int minNodes5;
 	public float size5;
 	public int rotation5;
 	public int relativeChance5;
@@ -84,8 +84,8 @@ public class marbleController : MonoBehaviour {
 	public bool fake6;
 	public int speed6;
 	public string movementScript6;
-	public int minNodes6;
 	public int maxNodes6;
+	public int minNodes6;
 	public float size6;
 	public int rotation6;
 	public int relativeChance6;
