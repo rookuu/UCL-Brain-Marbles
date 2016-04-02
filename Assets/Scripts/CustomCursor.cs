@@ -27,7 +27,6 @@ public class CustomCursor : MonoBehaviour
     {
         //Replace the 'cursorTexture' with the cursor   
         Cursor.SetCursor(this.cursorTexture, Vector2.zero, CursorMode.Auto);
-        Debug.Log("Custom cursor has been set.");
         //Set the ccEnabled variable to true 
         this.ccEnabled = true;
     }
