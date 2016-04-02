@@ -11,8 +11,7 @@ public class CustomCursor : MonoBehaviour
 
     void Start()
     {
-        //Call the 'SetCustomCursor' (see below) with a delay of 2 seconds.  
-        Invoke("SetCustomCursor", 2.0f);
+		SetCustomCursor ();
     }
 
     void OnDisable()

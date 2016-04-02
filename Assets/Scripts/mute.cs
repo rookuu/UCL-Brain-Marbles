@@ -8,6 +8,10 @@ public class mute : MonoBehaviour
     AudioSource audio;
 	public Toggle toggle;
 
+	void Start() {
+		audio = GameObject.Find ("GlobalData").GetComponent<AudioSource> ();
+	}
+
     void Update()
     {
 		if (Input.GetKeyDown (KeyCode.M))
@@ -20,8 +24,6 @@ public class mute : MonoBehaviour
 
 	public void muteMusic()
 	{
-		audio = GameObject.Find ("GlobalData").GetComponent<AudioSource> ();
-
 		if (audio.mute) {
 			audio.mute = false;
 		} else {

@@ -18,7 +18,10 @@ public class levelSelection : MonoBehaviour {
 	public Button level2;
 	public Button level3;
 	public Button level4;
-
+	public Button level5;
+	public Button level6;
+	public Button level7;
+	public Button level8;
 
 	// Use this for initialization
 	void Awake () {
@@ -36,7 +39,7 @@ public class levelSelection : MonoBehaviour {
 
 			while (_reader.Read ()) {
 				if ((string)_reader ["status"] == "pass") {
-					changeLevelStatus (i, "passed");
+					changeLevelStatus (i, "open");
 					found = true;
 					lastCompleted = i;
 					break;
@@ -50,6 +53,7 @@ public class levelSelection : MonoBehaviour {
 
 		if (lastCompleted != numberOfLevels) {
 			changeLevelStatus (lastCompleted + 1, "open");
+			Debug.Log ((lastCompleted + 1).ToString ());
 		}
 	}
 
@@ -60,18 +64,24 @@ public class levelSelection : MonoBehaviour {
 			changeButtonColour (level2, status);
 		} else if (stageid == 3) {
 			changeButtonColour (level3, status);
-		} else {
+		} else if (stageid == 4) {
 			changeButtonColour (level4, status);
+		} else if (stageid == 5) {
+			changeButtonColour (level5, status);
+		} else if (stageid == 6) {
+			changeButtonColour (level6, status);
+		} else if (stageid == 7) {
+			changeButtonColour (level7, status);
+		} else if (stageid == 8) {
+			changeButtonColour (level8, status);
 		}
 	}
 
 	void changeButtonColour(Button btn, string status) {
-		if (status == "passed") {
-			btn.GetComponent<Image> ().color = Color.green;
-		} else if (status == "open") {
-			btn.GetComponent<Image> ().color = Color.blue;
-		} else {
-			btn.GetComponent<Image> ().color = Color.red;
+		if (status == "open") {
+			btn.GetComponent<Button> ().interactable = true;
+		} else if (status == "locked") {
+			btn.GetComponent<Button> ().interactable = false;
 		}
 	}
 }

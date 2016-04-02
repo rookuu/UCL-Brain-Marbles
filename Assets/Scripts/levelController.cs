@@ -83,10 +83,13 @@ public class levelController : MonoBehaviour {
 		_cmd.Parameters.Add(new SqliteParameter ("@levelid", GameObject.Find("loadGameData").GetComponent<loadLevelData>().levelid));
 		_cmd.Parameters.Add(new SqliteParameter ("@userid", data.userID));
 		_cmd.Parameters.Add(new SqliteParameter ("@score", score));
-		_cmd.Parameters.Add(new SqliteParameter ("@timeleft", (int)(timeLimit - time)));
 		_cmd.Parameters.Add(new SqliteParameter ("@status", status));
+		_cmd.Parameters.Add(new SqliteParameter ("@unixtime", (int)(System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1))).TotalSeconds));
+		_cmd.Parameters.Add (new SqliteParameter ("@bgm", (!GameObject.Find ("GlobalData").GetComponent<AudioSource> ().mute).ToString ()));
+		_cmd.Parameters.Add (new SqliteParameter ("@screenx", Screen.width));
+		_cmd.Parameters.Add (new SqliteParameter ("@screeny", Screen.height));
 			
-		_cmd.CommandText = "INSERT INTO `levelsessions` (stageid, levelid, userid, score, timeleft, status) VALUES (@stageid, @levelid, @userid, @score, @timeleft, @status);";
+		_cmd.CommandText = "INSERT INTO `levelsessions` (stageid, levelid, userid, score, status, unixtime, bgm, screenx, screeny) VALUES (@stageid, @levelid, @userid, @score, @status, @unixtime, @bgm, @screenx, @screeny);";
 		_cmd.ExecuteNonQuery ();
 		_conn.Close ();
 	}
@@ -97,6 +100,7 @@ public class levelController : MonoBehaviour {
 		levelInfo.text = "You have " + timeLimit.ToString () + " seconds to collect " + scoreTarget.ToString () + " points. Misses will deduct " + badClickScore.ToString () + " points.";
 
 		GameObject newUIMarble;
+		GameObject newUISmall;
 		GameObject newUIInfo;
 
 		marbleController mc = GameObject.Find ("marbleController").GetComponent<marbleController> ();
@@ -114,8 +118,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake1);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite1;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		} 
 		if (uniqueMarbles >= 2) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
@@ -129,8 +133,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite2;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		} 
 		if (uniqueMarbles >= 3) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
@@ -144,8 +148,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite3;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 4) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
@@ -159,8 +163,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite4;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 5) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
@@ -174,8 +178,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite5;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 6) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
@@ -189,8 +193,8 @@ public class levelController : MonoBehaviour {
 
 			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite6;
-			newUIMarble = Instantiate (marbleUI);
-			newUIMarble.transform.SetParent (smallLayout.transform, false);
+			newUISmall = Instantiate (smallMarbleUI);
+			newUISmall.transform.SetParent (smallLayout.transform, false);
 		}
 
 		LayoutRebuilder.MarkLayoutForRebuild (horizLayout.transform as RectTransform);
