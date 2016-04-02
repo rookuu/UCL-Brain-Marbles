@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class mute : MonoBehaviour
 {
-    public AudioSource audio;
+    AudioSource audio;
 	public Toggle toggle;
 
     void Update()
@@ -20,6 +20,8 @@ public class mute : MonoBehaviour
 
 	public void muteMusic()
 	{
+		audio = GameObject.Find ("GlobalData").GetComponent<AudioSource> ();
+
 		if (audio.mute) {
 			audio.mute = false;
 		} else {

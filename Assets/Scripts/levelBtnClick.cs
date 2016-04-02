@@ -14,6 +14,6 @@ public class levelBtnClick : MonoBehaviour {
 		data.btnText = gameObject.name;
 		data.saveData ();
 
-		SceneManager.LoadScene (8);
+		SceneManager.LoadScene (7);
 	}
 }

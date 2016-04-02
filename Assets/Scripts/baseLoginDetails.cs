@@ -16,6 +16,9 @@ public class baseLoginDetails : MonoBehaviour {
 	IDbCommand _cmd;
 	IDataReader _reader;
 
+	public GameObject infobox;
+	public Text message;
+
 	public void registerAcc() {
 		if (password.text == passwordVerify.text) {
 			if (validateInfo() && checkExist()) {
@@ -27,23 +30,22 @@ public class baseLoginDetails : MonoBehaviour {
 				SceneManager.LoadScene (2);
 			}
 		} else {
-			Debug.Log ("Passwords don't match!");
+			displayMessage ("Error: Passwords don't match!");
 		}
 
 	}
 
 	bool validateInfo(){
 		if (firstName.text == "") {
-			Debug.Log ("Please enter a valid name");
+			displayMessage ("Error: Name field can't be left blank");
 			return false;
 		} else if (email.text.Length < 6 || email.text.Contains ("@") == false || email.text.Contains (".") == false) {
-			Debug.Log ("Please enter a valid email address.");
+			displayMessage ("Error: Email isn't valid, ensure it's in the correct form.");
 			return false;
 		} else if (password.text.Length < 6) {
-			Debug.Log ("Please enter a longer password (6 or more characters).");
+			displayMessage ("Error: Password must be longer than 6 characters");
 			return false;
 		} else {
-			Debug.Log ("Validation Sucessful");
 			return true;
 		}
 	}
@@ -58,11 +60,16 @@ public class baseLoginDetails : MonoBehaviour {
 		_reader = _cmd.ExecuteReader ();
 
 		if (_reader.Read ()) {
-			Debug.Log ("Email already exists!");
+			displayMessage ("Error: Email is already registered");
 			return false;
 		} else {
 			return true;
 		}
 
+	}
+
+	private void displayMessage(string msg) {
+		infobox.SetActive (true);
+		message.text = msg;
 	}
 }

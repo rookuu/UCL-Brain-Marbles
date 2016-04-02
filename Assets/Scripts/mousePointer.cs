@@ -24,9 +24,8 @@ public class mousePointer : MonoBehaviour {
 
 			if (hitInfo.collider == null) {
 				KillNearestMarble ();
-
 			}
-			else if (hitInfo.collider.gameObject.tag == "Marble") {
+			else if (hitInfo.collider.gameObject.tag == "Marble" && GameObject.Find("Main Camera").GetComponent<PauseMenu>().paused == false) {
 				hitInfo.collider.gameObject.GetComponent<marbleBehavior> ().catchMarble ();
 			}
 		}

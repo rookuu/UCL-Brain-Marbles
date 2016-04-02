@@ -13,6 +13,6 @@ public class ChangeScene : MonoBehaviour {
 	public void NextLevel () {
 		string txt = GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
 		GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText = (int.Parse (txt) + 1).ToString();
-		SceneManager.LoadScene (8);
+		SceneManager.LoadScene (7);
 	}
 }

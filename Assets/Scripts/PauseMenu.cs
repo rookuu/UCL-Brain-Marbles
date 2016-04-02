@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour {
 
     public GameObject PauseUI;
 
-    private bool paused = false;
+    public bool paused = false;
 
     void Start()
     {
@@ -41,6 +41,6 @@ public class PauseMenu : MonoBehaviour {
     }
     public void MainMenu()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel(4);
     }
 }

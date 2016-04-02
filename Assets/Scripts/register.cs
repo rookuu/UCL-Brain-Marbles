@@ -19,6 +19,9 @@ public class register : MonoBehaviour {
 
 	private string dob;
 
+	public GameObject infobox;
+	public Text message;
+
 	public void createAcc() {
 		_conn = new SqliteConnection(_dbName);
 		_cmd = _conn .CreateCommand();
@@ -56,8 +59,13 @@ public class register : MonoBehaviour {
 			data.saveData ();
 			SceneManager.LoadScene (3);
 		} else {
-			Debug.Log ("Please enter a valid Date Of Birth!");
+			displayMessage ("Error: Date of Birth Invalid, please check and try again.");
 			_conn.Close ();
 		}
+	}
+
+	private void displayMessage(string msg) {
+		infobox.SetActive (true);
+		message.text = msg;
 	}
 }

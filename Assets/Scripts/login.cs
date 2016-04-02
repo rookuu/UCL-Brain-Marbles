@@ -15,6 +15,9 @@ public class login : MonoBehaviour {
 	public InputField email;
 	public InputField password;
 
+	public GameObject infobox;
+	public Text message;
+
 	public void loginUser () {
 		//Validation(email);
 		//Validation(password);
@@ -29,7 +32,7 @@ public class login : MonoBehaviour {
 		_reader = _cmd.ExecuteReader ();
 
 		if (_reader.Read ()) {
-			if (BCrypt.CheckPassword(password.text + "r~BV2$J", (string)_reader["passwd"])) {
+			if (BCrypt.CheckPassword (password.text + "r~BV2$J", (string)_reader ["passwd"])) {
 				_cmd.CommandText = "SELECT * FROM `users` WHERE `email`=@email;";
 				_reader = _cmd.ExecuteReader ();
 
@@ -41,13 +44,20 @@ public class login : MonoBehaviour {
 					data.userName = (string)_reader ["firstname"];
 					data.userPass = null;
 					data.saveData ();
-					SceneManager.LoadScene (5);
-				} else {
-					Debug.Log ("Incorrect Username / Password");
+					SceneManager.LoadScene (4);
 				}
+			} else {
+				displayMessage ("Error: Email or Password is incorrect, please check and try again.");
 			}
+		} else {
+			displayMessage ("Error: Email or Password is incorrect, please check and try again.");
 		}
 
 		_conn.Close ();
+	}
+
+	private void displayMessage(string msg) {
+		infobox.SetActive (true);
+		message.text = msg;
 	}
 }

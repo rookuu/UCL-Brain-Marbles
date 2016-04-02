@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class globalData : MonoBehaviour {
 
@@ -14,6 +15,8 @@ public class globalData : MonoBehaviour {
 
 	public string btnText = null;
 
+	public AudioClip menubgm, gamebgm;
+
 	void Start () {
 		loggedIn = globalData.instance.loggedIn;
 
@@ -25,8 +28,11 @@ public class globalData : MonoBehaviour {
 		btnText = globalData.instance.btnText;
 	}
 	
-	// Update is called once per frame
 	void Awake () {
+		AudioSource source = GetComponent<AudioSource> ();
+	    source.clip = menubgm;
+		source.Play ();
+
 		if (instance == null) {
 			DontDestroyOnLoad (gameObject);
 			instance = this;
@@ -45,5 +51,11 @@ public class globalData : MonoBehaviour {
 		globalData.instance.userPass = userPass;
 
 		globalData.instance.btnText = btnText;
+	}
+
+	public void changeSong(AudioClip clip) {
+		AudioSource source = GetComponent<AudioSource> ();
+		source.clip = clip;
+		source.Play ();
 	}
 }

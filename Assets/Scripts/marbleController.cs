@@ -3,8 +3,7 @@ using System.Collections;
 
 public class marbleController : MonoBehaviour {
 	public int marblesOnScreen, xBoundary, yBoundary;
-	private bool hasRun = false;
-	public bool isRunning = true;
+	public bool isRunning = false;
 	public int uniqueMarbles;
 
 	[Space(10)]
@@ -92,8 +91,12 @@ public class marbleController : MonoBehaviour {
 	public int scoreChange6;
 
 	// Use this for initialization
-	void Start () {
-		StartCoroutine(createInitialMarbles());
+	void Start() {
+		isRunning = false;
+	}
+
+	public void startGame () {
+		createInitialMarbles();
 	}
 
 	// Update is called once per frame
@@ -102,21 +105,19 @@ public class marbleController : MonoBehaviour {
 		if (isRunning == true) {
 			int numberOfMarbles = GameObject.FindGameObjectsWithTag ("Marble").Length;
 
-			if (numberOfMarbles < marblesOnScreen && hasRun == true) {
+			if (numberOfMarbles < marblesOnScreen) {
 				createMarble ();
 			}
 		}
 	}
 
-	IEnumerator createInitialMarbles ()
+	void createInitialMarbles ()
 	{
 		for (int i = 0; i < marblesOnScreen; i++)
 		{
-			yield return new WaitForSeconds(1);
 			createMarble ();
 		}
-
-		hasRun = true;
+		isRunning = true;
 	}
 
 	void createMarble()
