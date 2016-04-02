@@ -4,7 +4,7 @@ using System.Data;
 using Mono.Data.SqliteClient;
 using UnityEngine.UI;
 
-public class levelSelection : MonoBehaviour {
+public class levelSelection_easy : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;
 	IDbCommand _cmd;
