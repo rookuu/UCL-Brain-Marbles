@@ -23,7 +23,7 @@ public class levelController : MonoBehaviour {
 	public Text num1, num2, score1, score2;
 
 	public Text levelInfo, leveltitle;
-	public GameObject marbleUI, infoUI, horizLayout, infoLayout;
+	public GameObject marbleUI, infoUI, smallMarbleUI, horizLayout, infoLayout, smallLayout;
 
 	public AudioClip gamebgm;
 
@@ -42,13 +42,11 @@ public class levelController : MonoBehaviour {
 				killAllMarbles ();
 
 				if (score > scoreTarget) {
-					Debug.Log ("Level Win");
 					saveSession ("pass");
 					levelwin.SetActive (true);
 					num2.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
 					score2.GetComponent<Text> ().text = "Score: " + score.ToString();
 				} else {
-					Debug.Log ("Level Loss");
 					saveSession ("fail");
 					levellose.SetActive (true);
 					num1.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
@@ -113,6 +111,11 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange1.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake1);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite1;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		} 
 		if (uniqueMarbles >= 2) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
@@ -123,6 +126,11 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange2.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite2;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		} 
 		if (uniqueMarbles >= 3) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
@@ -133,6 +141,11 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange3.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite3;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 4) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
@@ -143,6 +156,11 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange4.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite4;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 5) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
@@ -153,6 +171,11 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange5.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite5;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		}
 		if (uniqueMarbles >= 6) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
@@ -163,10 +186,17 @@ public class levelController : MonoBehaviour {
 			infoUI.GetComponent<Text> ().text = mc.scoreChange6.ToString();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
+
+			smallMarbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
+			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite6;
+			newUIMarble = Instantiate (marbleUI);
+			newUIMarble.transform.SetParent (smallLayout.transform, false);
 		}
 
 		LayoutRebuilder.MarkLayoutForRebuild (horizLayout.transform as RectTransform);
 		LayoutRebuilder.MarkLayoutForRebuild (infoLayout.transform as RectTransform);
+		LayoutRebuilder.MarkLayoutForRebuild (smallLayout.transform as RectTransform);
+
 	}
 
 	Color statusColour(bool isFake) {
