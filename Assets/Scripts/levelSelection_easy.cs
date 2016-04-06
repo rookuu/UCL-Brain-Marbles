@@ -23,6 +23,8 @@ public class levelSelection_easy : MonoBehaviour {
 	public Button level7;
 	public Button level8;
 
+	public GameObject infoBox;
+
 	// Use this for initialization
 	void Awake () {
 		_conn = new SqliteConnection(_dbName);
@@ -53,7 +55,15 @@ public class levelSelection_easy : MonoBehaviour {
 
 		if (lastCompleted != numberOfLevels) {
 			changeLevelStatus (lastCompleted + 1, "open");
-			Debug.Log ((lastCompleted + 1).ToString ());
+		}
+
+		_cmd.CommandText = "SELECT tutorial FROM `users` WHERE `userid`=@userid";
+		_reader = _cmd.ExecuteReader ();
+
+		if (_reader.Read ()) {
+			if ((string)_reader ["tutorial"] == "uncompleted" || (string)_reader ["tutorial"] == null) {
+				infoBox.SetActive (true);
+			}
 		}
 	}
 

@@ -27,7 +27,10 @@ public class register : MonoBehaviour {
 		_cmd = _conn .CreateCommand();
 		_conn .Open();
 
-		if (dob_year.text.Length == 4) {
+		int dobYearParse = 0;
+		int.TryParse (dob_year.text, out dobYearParse);
+
+		if (dob_year.text.Length == 4 && dobYearParse >1900 && dobYearParse <= System.DateTime.Now.Year) {
 			dob_day.value += 1;
 			dob_month.value += 1;
 			dob = dob_day.value.ToString () + '-' + dob_month.value.ToString () + "-" + dob_year.text;
@@ -45,7 +48,7 @@ public class register : MonoBehaviour {
 			_cmd.Parameters.Add (new SqliteParameter ("@gamesTime", gamesTime.value));
 			_cmd.Parameters.Add (new SqliteParameter ("@gamesType", gamesType.value));
 
-			_cmd.CommandText = "INSERT INTO `users` (firstname, email,  passwd, dob, gender, gamesTime, gamesType) VALUES (@name, @email, @pass, @dob, @gender, @gamesTime, @gamesType);";
+			_cmd.CommandText = "INSERT INTO `users` (firstname, email,  passwd, dob, gender, gamesTime, gamesType, tutorial) VALUES (@name, @email, @pass, @dob, @gender, @gamesTime, @gamesTypem 'uncompleted');";
 
 
 			_cmd.ExecuteNonQuery ();

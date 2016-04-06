@@ -28,7 +28,7 @@ public class MenuMarbles : MonoBehaviour {
 
 	void runThroughPath(Vector3[] path)
 	{
-		iTween.MoveTo(gameObject, iTween.Hash("path", path, "speed", speedOfMarble, "easetype",  iTween.EaseType.linear, "oncomplete", "flyOffScreen"));
+		iTween.MoveTo(gameObject, iTween.Hash("path", path, "speed", speedOfMarble, "easetype",  iTween.EaseType.linear, "looptype", iTween.LoopType.pingPong));
 	}
 		
 
