@@ -10,6 +10,7 @@ public class globalData : MonoBehaviour {
 
 	public int userID = 0;
 	public string userName = null;
+	public string userLast = null;
 	public string userEmail = null;
 	public string userPass = null;
 
@@ -22,6 +23,7 @@ public class globalData : MonoBehaviour {
 
 		userID = globalData.instance.userID;
 		userName = globalData.instance.userName;
+		userLast = globalData.instance.userLast;
 		userEmail = globalData.instance.userEmail;
 		userPass = globalData.instance.userPass;
 
@@ -47,6 +49,7 @@ public class globalData : MonoBehaviour {
 
 		globalData.instance.userID = userID;
 		globalData.instance.userName = userName;
+		globalData.instance.userLast = userLast;
 		globalData.instance.userEmail = userEmail;
 		globalData.instance.userPass = userPass;
 

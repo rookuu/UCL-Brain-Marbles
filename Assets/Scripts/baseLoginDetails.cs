@@ -7,6 +7,7 @@ using Mono.Data.SqliteClient;
 
 public class baseLoginDetails : MonoBehaviour {
 	public InputField firstName;
+	public InputField lastName;
 	public InputField email;
 	public InputField password;
 	public InputField passwordVerify;
@@ -24,6 +25,7 @@ public class baseLoginDetails : MonoBehaviour {
 			if (validateInfo() && checkExist()) {
 				globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
 				data.userName = firstName.text;
+				data.userLast = lastName.text;
 				data.userEmail = email.text;
 				data.userPass = password.text;
 				data.saveData ();
@@ -36,7 +38,7 @@ public class baseLoginDetails : MonoBehaviour {
 	}
 
 	bool validateInfo(){
-		if (firstName.text == "") {
+		if (firstName.text == "" || lastName.text == "") {
 			displayMessage ("Error: Name field can't be left blank");
 			return false;
 		} else if (email.text.Length < 6 || email.text.Contains ("@") == false || email.text.Contains (".") == false) {
