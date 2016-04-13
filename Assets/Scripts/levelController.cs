@@ -15,6 +15,8 @@ public class levelController : MonoBehaviour {
 
 	public Text textStatus;
 
+	public int goodMarbles = 0, badMarbles = 0, misses = 0;
+
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;
 	IDbCommand _cmd;
@@ -83,13 +85,17 @@ public class levelController : MonoBehaviour {
 		_cmd.Parameters.Add(new SqliteParameter ("@levelid", GameObject.Find("loadGameData").GetComponent<loadLevelData>().levelid));
 		_cmd.Parameters.Add(new SqliteParameter ("@userid", data.userID));
 		_cmd.Parameters.Add(new SqliteParameter ("@score", score));
+		_cmd.Parameters.Add(new SqliteParameter ("@good", goodMarbles));
+		_cmd.Parameters.Add(new SqliteParameter ("@bad", badMarbles));
+		_cmd.Parameters.Add(new SqliteParameter ("@miss", misses));
 		_cmd.Parameters.Add(new SqliteParameter ("@status", status));
 		_cmd.Parameters.Add(new SqliteParameter ("@unixtime", (int)(System.DateTime.UtcNow.Subtract(new System.DateTime(1970, 1, 1))).TotalSeconds));
 		_cmd.Parameters.Add (new SqliteParameter ("@bgm", (!GameObject.Find ("GlobalData").GetComponent<AudioSource> ().mute).ToString ()));
 		_cmd.Parameters.Add (new SqliteParameter ("@screenx", Screen.width));
 		_cmd.Parameters.Add (new SqliteParameter ("@screeny", Screen.height));
 			
-		_cmd.CommandText = "INSERT INTO `levelsessions` (stageid, levelid, userid, score, status, unixtime, bgm, screenx, screeny) VALUES (@stageid, @levelid, @userid, @score, @status, @unixtime, @bgm, @screenx, @screeny);";
+		_cmd.CommandText = "INSERT INTO `levelsessions` (stageid, levelid, userid, score, goodmarbles, fakemarbles" +
+			", misses, status, unixtime, bgm, screenx, screeny) VALUES (@stageid, @levelid, @userid, @score, @good, @bad, @miss, @status, @unixtime, @bgm, @screenx, @screeny);";
 		_cmd.ExecuteNonQuery ();
 		_conn.Close ();
 	}
