@@ -20,6 +20,7 @@ public class levelController : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;
 	IDbCommand _cmd;
+	IDataReader _reader;
 
 	public GameObject levelwin, levellose;
 	public Text num1, num2, score1, score2;
@@ -28,6 +29,8 @@ public class levelController : MonoBehaviour {
 	public GameObject marbleUI, infoUI, smallMarbleUI, horizLayout, infoLayout, smallLayout;
 
 	public AudioClip gamebgm;
+
+	public int HighScore;
 
 	// Use this for initialization
 	void Start () {
@@ -42,17 +45,29 @@ public class levelController : MonoBehaviour {
 			if (time > timeLimit) {
 				GameObject.Find ("marbleController").GetComponent<marbleController> ().isRunning = false;
 				killAllMarbles ();
+				int HighScore = GetHighScore ();
+					
 
 				if (score > scoreTarget) {
 					saveSession ("pass");
 					levelwin.SetActive (true);
 					num2.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
-					score2.GetComponent<Text> ().text = "Score: " + score.ToString();
+
+					if (HighScore < score) {
+						score2.GetComponent<Text> ().text = "High Score: " + score.ToString() + " Score: " + score.ToString () + " \nNEW HIGH SCORE!";
+					} else {
+						score2.GetComponent<Text> ().text = "High Score: " + HighScore.ToString () + " Score: " + score.ToString ();
+					}
+
 				} else {
 					saveSession ("fail");
 					levellose.SetActive (true);
 					num1.GetComponent<Text> ().text = "Level " + GameObject.Find ("GlobalData").GetComponent<globalData> ().btnText;
-					score1.GetComponent<Text> ().text = "Score: " + score.ToString();
+					if (HighScore < score) {
+						score1.GetComponent<Text> ().text = "High Score: " + score.ToString() + " Score: " + score.ToString () + " \nNEW HIGH SCORE!";
+					} else {
+						score1.GetComponent<Text> ().text = "High Score: " + HighScore.ToString () + " Score: " + score.ToString ();
+					}
 				}
 
 			} else {
@@ -215,6 +230,30 @@ public class levelController : MonoBehaviour {
 		} else {
 			return Color.green;
 		}
+	}
+
+	int GetHighScore() {
+		_conn = new SqliteConnection(_dbName);
+		_cmd = _conn .CreateCommand();
+		_conn.Open();
+
+		globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
+		_cmd.Parameters.Add(new SqliteParameter ("@userid", data.userID));
+		_cmd.Parameters.Add (new SqliteParameter ("@levelid", data.btnText));
+		_cmd.CommandText = "SELECT * FROM `levelsessions` WHERE `userid`=@userid AND `stageid`=@levelid;";
+		_reader = _cmd.ExecuteReader ();
+
+		int HighScore = 0;
+
+		while (_reader.Read ()) {
+			if ((int)_reader ["score"] > HighScore) {
+				HighScore = (int)_reader ["score"];
+			}
+		}
+
+		_conn.Close ();
+
+		return HighScore;
 	}
 }
 
