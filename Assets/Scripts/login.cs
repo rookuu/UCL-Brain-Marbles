@@ -37,14 +37,18 @@ public class login : MonoBehaviour {
 				_reader = _cmd.ExecuteReader ();
 
 				if (_reader.Read ()) {
-					globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
-					data.loggedIn = true;
-					data.userID = (int)_reader ["userid"];
-					data.userEmail = (string)_reader ["email"];
-					data.userName = (string)_reader ["firstname"];
-					data.userPass = null;
-					data.saveData ();
-					SceneManager.LoadScene (4);
+					if (_reader ["tutorial"].ToString() == "admin") {
+						SceneManager.LoadScene ("admin_panel");
+					} else {
+						globalData data = GameObject.Find ("GlobalData").GetComponent<globalData> ();
+						data.loggedIn = true;
+						data.userID = (int)_reader ["userid"];
+						data.userEmail = (string)_reader ["email"];
+						data.userName = (string)_reader ["firstname"];
+						data.userPass = null;
+						data.saveData ();
+						SceneManager.LoadScene (4);
+					}
 				}
 			} else {
 				displayMessage ("Error: Email or Password is incorrect, please check and try again.");
