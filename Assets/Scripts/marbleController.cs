@@ -225,9 +225,16 @@ public class marbleController : MonoBehaviour {
 	// For New Movement Scripts (Identities) They'll need to be enabled / disabled here.
 	{
 		if (name == "moveRandomly") {
+			marbleX.GetComponent<changeFake> ().enabled = false;
 			marbleX.GetComponent<moveRandomly> ().enabled = true;
 			marbleX.GetComponent<moveRandomly> ().maxNodes = maxNodes;
 			marbleX.GetComponent<moveRandomly> ().minNodes = minNodes;
+		} else if (name == "changeFake") {
+			marbleX.GetComponent<moveRandomly> ().enabled = false;
+			marbleX.GetComponent<changeFake> ().enabled = true;
+			marbleX.GetComponent<changeFake> ().maxNodes = maxNodes;
+			marbleX.GetComponent<changeFake> ().minNodes = minNodes;
+
 		}
 
 		return marbleX;

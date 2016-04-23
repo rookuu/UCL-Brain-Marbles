@@ -34,7 +34,13 @@ public class marbleBehavior : MonoBehaviour {
 			iTween.ShakePosition (gameObject, iTween.Hash ("amount", new Vector3 (1, 1, 0), "time", 1));
 			iTween.ScaleTo (gameObject, iTween.Hash ("time", 1.5, "scale", new Vector3 (0, 0, 0), "oncomplete", "destroyMarble"));
 		}
-		levelController.GetComponent<levelController>().addScore (scoreChange);
+
+		if (isFake == true && scoreChange > 0) {
+			levelController.GetComponent<levelController> ().addScore (-1 * scoreChange);
+		} else {
+			levelController.GetComponent<levelController>().addScore (scoreChange);
+
+		}
 	}
 
 	public void badCatch ()
@@ -49,6 +55,8 @@ public class marbleBehavior : MonoBehaviour {
 	public void updateSpeed(int speed) {
 		if (GetComponent<moveRandomly> ().enabled == true) {
 			GetComponent<moveRandomly> ().speedOfMarble = speed;
+		} else if (GetComponent<changeFake> ().enabled == true) {
+			GetComponent<changeFake> ().speedOfMarble = speed;
 		}
 	}
 }

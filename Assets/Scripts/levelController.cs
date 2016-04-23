@@ -141,6 +141,11 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite1;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+		
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake1);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size1/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size1/2, 0);
+
 		} 
 		if (uniqueMarbles >= 2) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
@@ -156,6 +161,10 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite2;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake2);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2/2, mc.size2/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2/2, mc.size2/2, 0);
 		} 
 		if (uniqueMarbles >= 3) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
@@ -171,6 +180,10 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite3;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake3);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size3/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size3/2, 0);
 		}
 		if (uniqueMarbles >= 4) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
@@ -186,6 +199,10 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite4;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake4);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size4/2, mc.size4/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size4/2, mc.size4/2, 0);
 		}
 		if (uniqueMarbles >= 5) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
@@ -201,6 +218,10 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite5;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake5);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size5/2, mc.size5/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size5/2, mc.size5/2, 0);
 		}
 		if (uniqueMarbles >= 6) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
@@ -216,6 +237,10 @@ public class levelController : MonoBehaviour {
 			smallMarbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite6;
 			newUISmall = Instantiate (smallMarbleUI);
 			newUISmall.transform.SetParent (smallLayout.transform, false);
+
+			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake6);
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size6/2, mc.size6/2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size6/2, mc.size6/2, 0);
 		}
 
 		LayoutRebuilder.MarkLayoutForRebuild (horizLayout.transform as RectTransform);
