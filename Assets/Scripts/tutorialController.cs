@@ -61,7 +61,7 @@ public class tutorialController : MonoBehaviour {
 			});
 			stage = -1;
 			dialog.SetActive (true);
-			dialogMessage.text = "In the top-left corner you'll see two different types of marbles, the green outline is a real marble (these will give you points) the red outline is a fake marbles (these will deduct points).\n\nClick the [Next] button to advance.";
+			dialogMessage.text = "In the top-left corner you'll see two different types of marbles, the green outline is a real marble (these will give you points) and the red outline is a fake marbles (these will deduct points).\n\nClick the [Next] button to advance.";
 			arrow.SetActive (true);
 			arrow.transform.localPosition = new Vector3 (-358, 119, 0);
 			arrow.transform.localEulerAngles = new Vector3 (0, 0, 90);
@@ -75,7 +75,7 @@ public class tutorialController : MonoBehaviour {
 			});
 			stage = -1;
 			dialog.SetActive (true);
-			dialogMessage.text = "Click on the real Marble to capture it. However, if you miss points are deducted and the marble is destroyed!\n\nClick the [Next] button to advance.";
+			dialogMessage.text = "Click on the real Marble to capture it. Ensure the yellow circle is inside the marble when you click! If you miss the mabrle points are deducted and the marble is destroyed!\n\nClick the [Next] button to advance.";
 			statusMessage.text = "Tutorial 1 • Basic Concepts • Click on the Marble to capture it!";
 			clicked = false;
 			GameObject.Find ("mousePointer").GetComponent<Tutorial_mousePointer> ().ready = true;
@@ -87,7 +87,7 @@ public class tutorialController : MonoBehaviour {
 				});
 				stage = -1;
 				dialog.SetActive (true);
-				dialogMessage.text = "Congratulations, you just gained points! The different real and fake marbles will be shown to you before the level starts.\nThat concludes this tutorial, more features will be explained once they're unlocked!";
+				dialogMessage.text = "Congratulations, you just gained points! The different real and fake marbles will be shown to you before a level starts.\nThat concludes this tutorial, more features will be explained once they're unlocked!";
 				statusMessage.text = "Tutorial 1 • Basic Concepts • Tutorial Complete!";
 			}
 		} else if (stage == 6) {
