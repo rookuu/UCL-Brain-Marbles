@@ -1,0 +1,83 @@
+c80c7d9,2 days ago,Small fixes plus new Marble Type
+e5ef389,5 days ago,Linked up Admin Panel
+cb45abb,6 days ago,Added HighScore
+d00db05,12 days ago,Finished Admin Panel and added more analytics
+469baa8,2 weeks ago,Admin Panel Functionality (ALMOST DONE)
+7829fb4,2 weeks ago,Started Admin Panel Functionality
+7b2b5f4,2 weeks ago,Small Tweaks to Users Table
+ae8b230,3 weeks ago,Tutorial Implemented
+1883289,3 weeks ago,Finished LevelSelection Rework - Medium and Hard Levels
+85aa135,3 weeks ago,Reworked Level Selection
+1ab230e,3 weeks ago,Real / Fake Marbles UI
+22c687e,3 weeks ago,Added ErrorBoxes and InfoBox
+eff61de,3 weeks ago,Added SoundEffects for Marbles
+9f80ff1,3 weeks ago,Added Functionality to LevelCompleted Panels
+f52438e,3 weeks ago,LevelCompletePanels
+d64c0ec,4 weeks ago,Added all sprites and shapes
+bf90fc2,4 weeks ago,Added min/max nodes parameters
+878d127,5 weeks ago,Pause_UI and Functionality
+ff52fb3,5 weeks ago,Changes for Demo
+4984f88,6 weeks ago,Added Multiple Levels
+ae0d793,6 weeks ago,Merge pull request #54 from rookuu/level-selection
+83dfee9,6 weeks ago,Level Selection shows whether use has unlocked / completed previous level
+2d4f567,6 weeks ago,Added Level Selection and Basic Session Tracking
+e580918,6 weeks ago,Merge pull request #53 from rookuu/Pause_ui
+dc6bfd2,6 weeks ago,Removed Broken Code
+124b49c,6 weeks ago,added simple boundaries to game
+b8d2295,6 weeks ago,pause screen ui
+7b55fca,6 weeks ago,Merge pull request #51 from rookuu/create-level-database
+a9e8476,6 weeks ago,Adds Marble Rotation Parameter
+6768c6f,6 weeks ago,Levels are created from DB now
+339f2de,6 weeks ago,Finished User Accounts
+7b7cb5a,6 weeks ago,Merge pull request #50 from rookuu/cleanup
+1a3c942,6 weeks ago,Added Secure Password Saving
+5385d6b,6 weeks ago,Cleaned Up GameObject Names
+ae8b667,6 weeks ago,Merge branch 'master' into cleanup
+b68989c,6 weeks ago,Improved-db
+a869318,6 weeks ago,Merge pull request #46 from rookuu/cleanup
+b09b4db,6 weeks ago,Cleans CreateAcc_UI
+90c5da7,6 weeks ago,Merge pull request #45 from rookuu/persistant-data
+b91b3de,6 weeks ago,SQLite Functionality on Register Screen
+d18c2e4,6 weeks ago,Merge pull request #44 from rookuu/persistant-data
+2e745f2,6 weeks ago,Adds Basic Persistence
+31ff76c,6 weeks ago,Merge pull request #43 from rookuu/ui_resolution_fixed
+4d1945e,6 weeks ago,Fixing level parameters
+c020654,6 weeks ago,added level selector scenes
+61f0c3c,6 weeks ago,fixed resolution problem
+d8d0b53,6 weeks ago,Merge pull request #42 from rookuu/custom-points
+094da79,6 weeks ago,Adds Custom Points per Marble and Global FailedClick Score
+ff33619,6 weeks ago,Merge pull request #41 from rookuu/even-more-marble-options
+439e771,6 weeks ago,Adds options to change Size and Spawn Rates.
+7adddcf,6 weeks ago,Merge pull request #39 from rookuu/more-marble-options
+19c6599,6 weeks ago,Adds More Marble Spawning Options
+19eff45,6 weeks ago,Merge pull request #37 from rookuu/Unsuccessful-catch
+a407a56,6 weeks ago,Adds Failed Catch Event
+0373ba7,6 weeks ago,Merge pull request #36 from rookuu/fix-timer
+e070a1f,6 weeks ago,Fixes Timer and Destroys Marbles on Time-limit Reached.
+2ae77f1,7 weeks ago,Merge pull request #34 from rookuu/better-marble-spawning
+6207328,7 weeks ago,Clean up
+5dfdc5e,7 weeks ago,Removes Unused Assets
+1090c1d,7 weeks ago,Adds new Prefabs for each shape.
+d824a6d,7 weeks ago,Fixed .gitignore to exclude built applications.
+b58bf58,7 weeks ago,Reworked MarbleController.cs.
+47eb41c,7 weeks ago,Merge pull request #33 from rookuu/improved_ui
+e1b8468,7 weeks ago,1
+40981b2,7 weeks ago,ui adjusted
+3f4afb9,7 weeks ago,Merge pull request #32 from rookuu/torch_cursor
+1e51ed3,7 weeks ago,Merge pull request #31 from rookuu/functionality_ui
+54a1054,7 weeks ago,added torch cursor
+2fd3191,7 weeks ago,added functionality to buttons
+a661a8f,7 weeks ago,Slight Marble Prefab Change
+f27bfb4,7 weeks ago,Adds levelController, Foundations for Time and Score.
+5ea7341,7 weeks ago,Merge pull request #26 from rookuu/Fix-Catching
+8ad2eaf,7 weeks ago,Fixes Catching Mechanism
+df3e395,7 weeks ago,Added BGM
+33b54cb,7 weeks ago,UI Foundations and Asset Restructure
+40c72fc,8 weeks ago,Fixes Marble Spawning and Implements Catching
+e85c0db,8 weeks ago,Merge pull request #21 from rookuu/sync
+d40999d,8 weeks ago,New Assets
+127f18a,8 weeks ago,Merge pull request #2 from rookuu/luke-dev
+f1099ed,8 weeks ago,Adds Automatic Marble Spawning and Real/Fake System
+dfcf405,8 weeks ago,Adds Initial Game Objects, Random Marble Movement.
+022d7b3,8 weeks ago,Create .gitignore
+75a1814,8 weeks ago,Initial commit

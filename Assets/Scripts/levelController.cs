@@ -146,6 +146,9 @@ public class levelController : MonoBehaviour {
 			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size1/2, 0);
 			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size1/2, 0);
 
+			newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation1));
+			newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation1));
+
 		} 
 		if (uniqueMarbles >= 2) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake2);
@@ -153,7 +156,7 @@ public class levelController : MonoBehaviour {
 			newUIMarble = Instantiate (marbleUI);
 			newUIMarble.transform.SetParent (horizLayout.transform, false);
 
-			infoUI.GetComponent<Text> ().text = mc.scoreChange2.ToString();
+			infoUI.GetComponent<Text> ().text = mc.scoreChange2.ToString ();
 			newUIInfo = Instantiate (infoUI);
 			newUIInfo.transform.SetParent (infoLayout.transform, false);
 
@@ -163,9 +166,12 @@ public class levelController : MonoBehaviour {
 			newUISmall.transform.SetParent (smallLayout.transform, false);
 
 			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake2);
-			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2/2, mc.size2/2, 0);
-			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2/2, mc.size2/2, 0);
-		} 
+			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2 / 2, mc.size2 / 2, 0);
+			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size2 / 2, mc.size2 / 2, 0);
+
+			newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation2));
+			newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation2));
+		}
 		if (uniqueMarbles >= 3) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake3);
 			marbleUI.transform.GetChild (0).GetComponent<Image> ().sprite = mc.sprite3;
@@ -183,7 +189,10 @@ public class levelController : MonoBehaviour {
 
 			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake3);
 			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size3/2, 0);
-			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size3/2, 0);
+				newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size1/2, mc.size3/2, 0);
+
+				newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation3));
+				newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation3));
 		}
 		if (uniqueMarbles >= 4) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake4);
@@ -202,7 +211,10 @@ public class levelController : MonoBehaviour {
 
 			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake4);
 			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size4/2, mc.size4/2, 0);
-			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size4/2, mc.size4/2, 0);
+				newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size4/2, mc.size4/2, 0);
+
+				newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation4));
+				newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation4));
 		}
 		if (uniqueMarbles >= 5) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake5);
@@ -222,6 +234,9 @@ public class levelController : MonoBehaviour {
 			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake5);
 			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size5/2, mc.size5/2, 0);
 			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size5/2, mc.size5/2, 0);
+
+			newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation5));
+			newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation5));
 		}
 		if (uniqueMarbles >= 6) {
 			marbleUI.GetComponent<Image> ().color = statusColour (mc.fake6);
@@ -240,7 +255,10 @@ public class levelController : MonoBehaviour {
 
 			newUIInfo.transform.GetComponent<Text> ().color = statusColour (mc.fake6);
 			newUIMarble.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size6/2, mc.size6/2, 0);
-			newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size6/2, mc.size6/2, 0);
+				newUISmall.transform.GetChild (0).GetComponent<RectTransform> ().localScale = new Vector3 (mc.size6/2, mc.size6/2, 0);
+
+				newUIMarble.transform.Rotate (new Vector3 (0, 0, mc.rotation6));
+				newUISmall.transform.Rotate (new Vector3 (0, 0, mc.rotation6));
 		}
 
 		LayoutRebuilder.MarkLayoutForRebuild (horizLayout.transform as RectTransform);

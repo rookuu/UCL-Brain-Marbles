@@ -23,12 +23,6 @@ public class moveRandomly : MonoBehaviour {
 
         runThroughPath(path);
     }
-    
-    // Update is called once per frame
-    void Update ()
-    {
-    
-    }
 
     void runThroughPath(Vector3[] path)
     {
@@ -56,7 +50,6 @@ public class moveRandomly : MonoBehaviour {
         {
             offScreenPos = new Vector3(-xBoundary, Random.Range(-yBoundary, yBoundary), 0);
         }
-
 
         iTween.MoveTo(gameObject, iTween.Hash("position", offScreenPos, "speed", speedOfMarble, "easetype", iTween.EaseType.linear, "oncomplete", "destroyMarble"));
     }
