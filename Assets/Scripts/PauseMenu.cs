@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/* The ingame pause menu, allows the user to restart and quit the level. */
+
 public class PauseMenu : MonoBehaviour {
 
     public GameObject PauseUI;

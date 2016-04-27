@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* The default movement type for the marbles, they just move randomly until their lifetime is up then they move off screen */
+
 public class moveRandomly : MonoBehaviour {
 
     int numberOfPathNodes;

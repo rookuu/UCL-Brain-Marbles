@@ -2,6 +2,11 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/* The main class for the singleton concept, allows data to be transfered acrosss scenes.
+ * I'm also using it to let me continue the music through every scene since the game object never gets deleted
+ */
+
+
 public class globalData : MonoBehaviour {
 
 	public static globalData instance;

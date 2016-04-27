@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using System.Data;
 using Mono.Data.SqliteClient;
 
+/* Handles logging in the user, checks the credentials with the hashed password in the database */
+
 public class login : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

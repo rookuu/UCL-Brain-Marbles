@@ -3,6 +3,8 @@ using System.Collections;
 
 public class changeFake : MonoBehaviour {
 
+	/* Marble Modifier Class: Makes a Marble alternate between being real and fake at random intervals */
+
 	int numberOfPathNodes;
 	public int speedOfMarble;
 	public int xBoundary;

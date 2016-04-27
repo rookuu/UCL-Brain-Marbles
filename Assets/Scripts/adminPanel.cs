@@ -4,6 +4,10 @@ using System.Data;
 using Mono.Data.SqliteClient;
 using UnityEngine.UI;
 
+/* Main Controller for the admin panel, this class imports all of the details regarding each level.
+ * The user can then change the levels and update the databade.
+ */  
+
 public class adminPanel : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

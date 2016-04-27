@@ -5,6 +5,8 @@ using System.Collections;
 using System.Data;
 using Mono.Data.SqliteClient;
 
+/* Script contains all of the functions for the tutorial */
+
 public class tutorialController : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

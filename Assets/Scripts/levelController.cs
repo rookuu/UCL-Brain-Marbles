@@ -5,6 +5,8 @@ using System.Data;
 using Mono.Data.SqliteClient;
 using UnityEngine.SceneManagement;
 
+/* Handles most of the functions relating to each level, including saving of the session, the score and timers and the UI. */
+
 public class levelController : MonoBehaviour {
 	int score = 0;
 	public int scoreTarget;

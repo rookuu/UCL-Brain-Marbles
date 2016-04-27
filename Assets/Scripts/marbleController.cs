@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Handles the spawning and monitoring of all of the marbles on screen.
+ * Also where the marble parameters are stored once they've been imported from the database */
+
 public class marbleController : MonoBehaviour {
 	public int marblesOnScreen, xBoundary, yBoundary;
 	public bool isRunning = false;

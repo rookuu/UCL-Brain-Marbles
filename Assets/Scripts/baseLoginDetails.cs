@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 using System.Data;
 using Mono.Data.SqliteClient;
 
+/* Preps all of the intial account date for transition to the next scene where the additional information is added 
+* Also handles validation of input.
+*/
+
 public class baseLoginDetails : MonoBehaviour {
 	public InputField firstName;
 	public InputField lastName;

@@ -4,6 +4,8 @@ using System.Data;
 using Mono.Data.SqliteClient;
 using UnityEngine.UI;
 
+/* Needed seperate classes for the level selection so we could incorperate the special features and tutorials for each difficulty */
+
 public class levelSelection_easy : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

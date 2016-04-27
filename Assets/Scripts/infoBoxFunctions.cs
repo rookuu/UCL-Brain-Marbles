@@ -4,6 +4,8 @@ using System.Collections;
 using System.Data;
 using Mono.Data.SqliteClient;
 
+/* All functions related to the information popup box */
+
 public class infoBoxFunctions : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

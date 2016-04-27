@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Deals with all of the raycasts and pointer functions, this class checks whether the user successfully clicked on the marble */
+
 public class mousePointer : MonoBehaviour {
 
     public Sprite lightOn;

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Modified mouse pointer script for the tutorial, slightly simplified */
+
 public class Tutorial_mousePointer : MonoBehaviour {
 
 	public Sprite lightOff;

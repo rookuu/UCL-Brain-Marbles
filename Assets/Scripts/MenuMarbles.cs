@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Simpler version of the move randomly script with an infinite run cycle so the marbles will randomly move around behind the menus */
+
 public class MenuMarbles : MonoBehaviour {
 
 	int numberOfPathNodes;

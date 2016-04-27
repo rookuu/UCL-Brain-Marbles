@@ -3,6 +3,8 @@ using System.Collections;
 using System.Data;
 using Mono.Data.SqliteClient;
 
+/* Loads the level data from the database */
+
 public class loadLevelData : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

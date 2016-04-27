@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* Contains a modified version of the marble behaviour class for the tutorial */
+
 public class tutorialMarble : MonoBehaviour {
 
 	public int numberOfPathNodes;

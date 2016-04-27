@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/* The core marble functions are here, including what to do the bobject gets clicked and the animations for each */
+
 public class marbleBehavior : MonoBehaviour {
 
     public bool isFake = false;

@@ -5,6 +5,10 @@ using Mono.Data.SqliteClient;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/* Deals with register the user to the database, creates the record and adds it.
+ * Also deals with validation.
+ */
+
 public class register : MonoBehaviour {
 	string _dbName = "URI=file:brainmarbles.db";
 	IDbConnection _conn;

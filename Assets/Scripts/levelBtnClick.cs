@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/* Level Selection button, adds the level to the singleton object */
+
 public class levelBtnClick : MonoBehaviour {
 
 	void Awake() {
